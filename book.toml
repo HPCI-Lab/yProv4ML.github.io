@@ -1,0 +1,6 @@
+[book]
+authors = ["Gabriele Padovani"]
+language = "en"
+multilingual = false
+src = "src"
+title = "yProv4ML Documentation"
