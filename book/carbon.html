@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Installation - yProv4ML Documentation</title>
+        <title>Carbon Metrics - yProv4ML Documentation</title>
 
 
         <!-- Custom HTML head -->
@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="installation.html" class="active"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="setup.html"><strong aria-hidden="true">2.</strong> Setup</a></li><li class="chapter-item expanded "><a href="prov_graph.html"><strong aria-hidden="true">3.</strong> Provenance Graph</a></li><li class="chapter-item expanded "><a href="logging.html"><strong aria-hidden="true">4.</strong> Logging</a></li><li class="chapter-item expanded "><a href="prov_collection.html"><strong aria-hidden="true">5.</strong> Prov Collection</a></li><li class="chapter-item expanded "><a href="carbon.html"><strong aria-hidden="true">6.</strong> Carbon Metrics</a></li><li class="chapter-item expanded "><a href="system.html"><strong aria-hidden="true">7.</strong> System Metrics</a></li><li class="chapter-item expanded "><a href="time.html"><strong aria-hidden="true">8.</strong> Time Metrics</a></li><li class="chapter-item expanded "><a href="registering_metrics.html"><strong aria-hidden="true">9.</strong> Registering Metrics</a></li><li class="chapter-item expanded "><a href="usage_pytorch.html"><strong aria-hidden="true">10.</strong> Usage with PyTorch</a></li><li class="chapter-item expanded "><a href="usage_lightning.html"><strong aria-hidden="true">11.</strong> Usage with Lightning</a></li><li class="chapter-item expanded "><a href="usage_itwinAI_logger.html"><strong aria-hidden="true">12.</strong> Usage with ItwinAI Logger</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="setup.html"><strong aria-hidden="true">2.</strong> Setup</a></li><li class="chapter-item expanded "><a href="prov_graph.html"><strong aria-hidden="true">3.</strong> Provenance Graph</a></li><li class="chapter-item expanded "><a href="logging.html"><strong aria-hidden="true">4.</strong> Logging</a></li><li class="chapter-item expanded "><a href="prov_collection.html"><strong aria-hidden="true">5.</strong> Prov Collection</a></li><li class="chapter-item expanded "><a href="carbon.html" class="active"><strong aria-hidden="true">6.</strong> Carbon Metrics</a></li><li class="chapter-item expanded "><a href="system.html"><strong aria-hidden="true">7.</strong> System Metrics</a></li><li class="chapter-item expanded "><a href="time.html"><strong aria-hidden="true">8.</strong> Time Metrics</a></li><li class="chapter-item expanded "><a href="registering_metrics.html"><strong aria-hidden="true">9.</strong> Registering Metrics</a></li><li class="chapter-item expanded "><a href="usage_pytorch.html"><strong aria-hidden="true">10.</strong> Usage with PyTorch</a></li><li class="chapter-item expanded "><a href="usage_lightning.html"><strong aria-hidden="true">11.</strong> Usage with Lightning</a></li><li class="chapter-item expanded "><a href="usage_itwinAI_logger.html"><strong aria-hidden="true">12.</strong> Usage with ItwinAI Logger</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -144,32 +144,66 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="installation"><a class="header" href="#installation">Installation</a></h1>
-<p>Install from the repository:</p>
-<pre><code class="language-bash">git clone https://github.com/HPCI-Lab/yProvML.git
-cd yProvML
-
-pip install -r requirements.txt
-# Install the package
-pip install .
-# Use apple extra if on a Mac
-pip install .[apple]
-
-# or install for specific arch
-pip install .[nvidia] # or .[amd]
-
+                        <h1 id="carbon-metrics"><a class="header" href="#carbon-metrics">Carbon Metrics</a></h1>
+<p>The prov4ml.log_carbon_metrics function logs carbon-related system metrics during machine learning experiments. 
+The information logged is related to the time between the last call to the function and the current call.</p>
+<pre><code class="language-python">prov4ml.log_carbon_metrics(
+    context: Context,
+    step: Optional[int] = None,
+)
 </code></pre>
-<p>or simply:</p>
-<pre><code class="language-bash">pip install --no-cache-dir git+https://github.com/HPCI-Lab/yProvML
-</code></pre>
-<p><a href="README.html">Home</a> | <a href="setup.html">Next</a></p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Parameter</th><th style="text-align: left">Type</th><th style="text-align: left">Description</th></tr></thead><tbody>
+<tr><td style="text-align: left"><code>context</code></td><td style="text-align: left"><code>prov4ml.Context</code></td><td style="text-align: left"><strong>Required</strong>. Context of the metric</td></tr>
+<tr><td style="text-align: left"><code>step</code></td><td style="text-align: left"><code>int</code></td><td style="text-align: left"><strong>Optional</strong>. Step of the metric</td></tr>
+</tbody></table>
+</div>
+<p>This function logs the following system metrics:</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Parameter</th><th style="text-align: center">Description</th><th style="text-align: center">Unit</th></tr></thead><tbody>
+<tr><td style="text-align: left"><code>Emissions</code></td><td style="text-align: center">Emissions of the system</td><td style="text-align: center">gCO2eq</td></tr>
+<tr><td style="text-align: left"><code>Emissions rate</code></td><td style="text-align: center">Emissions rate of the system</td><td style="text-align: center">gCO2eq/s</td></tr>
+<tr><td style="text-align: left"><code>CPU power</code></td><td style="text-align: center">Power usage of the CPU</td><td style="text-align: center">W</td></tr>
+<tr><td style="text-align: left"><code>GPU power</code></td><td style="text-align: center">Power usage of the GPU</td><td style="text-align: center">W</td></tr>
+<tr><td style="text-align: left"><code>RAM power</code></td><td style="text-align: center">Power usage of the RAM</td><td style="text-align: center">W</td></tr>
+<tr><td style="text-align: left"><code>CPU energy</code></td><td style="text-align: center">Energy usage of the CPU</td><td style="text-align: center">J</td></tr>
+<tr><td style="text-align: left"><code>GPU energy</code></td><td style="text-align: center">Energy usage of the GPU</td><td style="text-align: center">J</td></tr>
+<tr><td style="text-align: left"><code>RAM energy</code></td><td style="text-align: center">Energy usage of the RAM</td><td style="text-align: center">J</td></tr>
+<tr><td style="text-align: left"><code>Energy consumed</code></td><td style="text-align: center">Energy consumed by the system</td><td style="text-align: center">J</td></tr>
+</tbody></table>
+</div>
+<h3 id="how-is-co2eq-calculated"><a class="header" href="#how-is-co2eq-calculated">How is CO2Eq calculated?</a></h3>
+<p>The CO2 equivalent (CO2eq) is a metric used to compare the emissions of CO2. </p>
+<ul>
+<li><strong>CO2eq</strong> is calculated by multiplying the energy consumed by the system by carbon intensity.</li>
+<li><strong>Energy</strong> is calculated by multiplying the power usage by the time interval, this is done for each component (CPU, GPU, RAM).</li>
+<li><strong>Carbon intensity</strong> is the amount of CO2 emitted per unit of energy consumed. It can be obtained in three ways:
+<ul>
+<li>Using cloud providers' carbon intensity data (Google). </li>
+<li>Using the carbon intensity of the grid where the system is running (per country).</li>
+<li>Using the electricity mix of the grid where the system is running (renewables / gas / petroleum / coal).</li>
+</ul>
+</li>
+</ul>
+<h3 id="why-is-it-decreasing"><a class="header" href="#why-is-it-decreasing">Why is it decreasing?</a></h3>
+<p>The emissions rate can decrease due to the following reasons:</p>
+<ul>
+<li><strong>Idle time</strong>: The system is not being used, so the power usage is low.</li>
+<li><strong>Energy efficiency</strong>: The system is using less power to perform the same tasks.</li>
+<li><strong>Startup time</strong>: The system is starting up, so the power usage is high at the beginning.</li>
+</ul>
+<p>After plotting the metrics saved with codecarbon, we can see that the emissions rate decreases over time. </p>
+<p><img src="../assets/codecarbon_metrics.png" alt="Emissions Rate" /></p>
+<p>This shows that energy is mostly constant over time, while the emissions rate decreases. This is due to the ratio between energy and time, which is decreasing over time.</p>
+<p><a href="README.html">Home</a> | <a href="carbon.html">Prev</a> | <a href="system.html">Next</a></p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="prov_collection.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
 
-                            <a rel="next" href="setup.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="system.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -179,8 +213,11 @@ pip install .[nvidia] # or .[amd]
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="prov_collection.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
 
-                    <a rel="next" href="setup.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="system.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

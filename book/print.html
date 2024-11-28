@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="src/installation.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="src/setup.html"><strong aria-hidden="true">2.</strong> Setup</a></li><li class="chapter-item expanded "><a href="src/prov_graph.html"><strong aria-hidden="true">3.</strong> Provenance Graph</a></li><li class="chapter-item expanded "><a href="src/logging.html"><strong aria-hidden="true">4.</strong> Logging</a></li><li class="chapter-item expanded "><a href="src/prov_collection.html"><strong aria-hidden="true">5.</strong> Prov Collection</a></li><li class="chapter-item expanded "><a href="src/carbon.html"><strong aria-hidden="true">6.</strong> Carbon Metrics</a></li><li class="chapter-item expanded "><a href="src/system.html"><strong aria-hidden="true">7.</strong> System Metrics</a></li><li class="chapter-item expanded "><a href="src/time.html"><strong aria-hidden="true">8.</strong> Time Metrics</a></li><li class="chapter-item expanded "><a href="src/registering_metrics.html"><strong aria-hidden="true">9.</strong> Registering Metrics</a></li><li class="chapter-item expanded "><a href="src/usage_pytorch.html"><strong aria-hidden="true">10.</strong> Usage with PyTorch</a></li><li class="chapter-item expanded "><a href="src/usage_lightning.html"><strong aria-hidden="true">11.</strong> Usage with Lightning</a></li><li class="chapter-item expanded "><a href="src/usage_itwinAI_logger.html"><strong aria-hidden="true">12.</strong> Usage with ItwinAI Logger</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="setup.html"><strong aria-hidden="true">2.</strong> Setup</a></li><li class="chapter-item expanded "><a href="prov_graph.html"><strong aria-hidden="true">3.</strong> Provenance Graph</a></li><li class="chapter-item expanded "><a href="logging.html"><strong aria-hidden="true">4.</strong> Logging</a></li><li class="chapter-item expanded "><a href="prov_collection.html"><strong aria-hidden="true">5.</strong> Prov Collection</a></li><li class="chapter-item expanded "><a href="carbon.html"><strong aria-hidden="true">6.</strong> Carbon Metrics</a></li><li class="chapter-item expanded "><a href="system.html"><strong aria-hidden="true">7.</strong> System Metrics</a></li><li class="chapter-item expanded "><a href="time.html"><strong aria-hidden="true">8.</strong> Time Metrics</a></li><li class="chapter-item expanded "><a href="registering_metrics.html"><strong aria-hidden="true">9.</strong> Registering Metrics</a></li><li class="chapter-item expanded "><a href="usage_pytorch.html"><strong aria-hidden="true">10.</strong> Usage with PyTorch</a></li><li class="chapter-item expanded "><a href="usage_lightning.html"><strong aria-hidden="true">11.</strong> Usage with Lightning</a></li><li class="chapter-item expanded "><a href="usage_itwinAI_logger.html"><strong aria-hidden="true">12.</strong> Usage with ItwinAI Logger</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -146,18 +146,384 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="installation"><a class="header" href="#installation">Installation</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="setup"><a class="header" href="#setup">Setup</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="provenance-graph"><a class="header" href="#provenance-graph">Provenance Graph</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="logging"><a class="header" href="#logging">Logging</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="prov-collection"><a class="header" href="#prov-collection">Prov Collection</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="carbon-metrics"><a class="header" href="#carbon-metrics">Carbon Metrics</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="system-metrics"><a class="header" href="#system-metrics">System Metrics</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="time-metrics"><a class="header" href="#time-metrics">Time Metrics</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="registering-metrics"><a class="header" href="#registering-metrics">Registering Metrics</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="usage-with-pytorch"><a class="header" href="#usage-with-pytorch">Usage with PyTorch</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="usage-with-lightning"><a class="header" href="#usage-with-lightning">Usage with Lightning</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="usage-with-itwinai-logger"><a class="header" href="#usage-with-itwinai-logger">Usage with ItwinAI Logger</a></h1>
+<p>Install from the repository:</p>
+<pre><code class="language-bash">git clone https://github.com/HPCI-Lab/yProvML.git
+cd yProvML
 
+pip install -r requirements.txt
+# Install the package
+pip install .
+# Use apple extra if on a Mac
+pip install .[apple]
+
+# or install for specific arch
+pip install .[nvidia] # or .[amd]
+
+</code></pre>
+<p>or simply:</p>
+<pre><code class="language-bash">pip install --no-cache-dir git+https://github.com/HPCI-Lab/yProvML
+</code></pre>
+<p><a href="README.html">Home</a> | <a href="setup.html">Next</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="setup"><a class="header" href="#setup">Setup</a></h1>
+<p>Before using the library, the user must set up the MLFlow execution, as well as library specific configurations: </p>
+<pre><code class="language-python">prov4ml.start_run(
+    prov_user_namespace: str,
+    experiment_name: Optional[str] = None,
+    provenance_save_dir: Optional[str] = None,
+    collect_all_processes: Optional[bool] = False,
+    save_after_n_logs: Optional[int] = 100,
+    rank : Optional[int] = None, 
+)
+</code></pre>
+<p>The parameters are as follows:</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Parameter</th><th style="text-align: left">Type</th><th style="text-align: left">Description</th></tr></thead><tbody>
+<tr><td style="text-align: left"><code>prov_user_namespace</code></td><td style="text-align: left"><code>string</code></td><td style="text-align: left"><strong>Required</strong>. User namespace for the provenance graph</td></tr>
+<tr><td style="text-align: left"><code>experiment_name</code></td><td style="text-align: left"><code>string</code></td><td style="text-align: left"><strong>Required</strong>. Name of the experiment</td></tr>
+<tr><td style="text-align: left"><code>provenance_save_dir</code></td><td style="text-align: left"><code>string</code></td><td style="text-align: left"><strong>Required</strong>. Directory to save the provenance graph</td></tr>
+<tr><td style="text-align: left"><code>collect_all_processes</code></td><td style="text-align: left"><code>bool</code></td><td style="text-align: left"><strong>Optional</strong>. Whether to collect all processes</td></tr>
+<tr><td style="text-align: left"><code>save_after_n_logs</code></td><td style="text-align: left"><code>int</code></td><td style="text-align: left"><strong>Optional</strong>. Save the graph after n logs</td></tr>
+<tr><td style="text-align: left"><code>rank</code></td><td style="text-align: left"><code>int</code></td><td style="text-align: left"><strong>Optional</strong>. Rank of the process</td></tr>
+</tbody></table>
+</div>
+<p>At the end of the experiment, the user must end the run:</p>
+<pre><code class="language-python">prov4ml.end_run(
+    create_graph: Optional[bool] = False, 
+    create_svg: Optional[bool] = False, 
+)
+</code></pre>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Parameter</th><th style="text-align: left">Type</th><th style="text-align: left">Description</th></tr></thead><tbody>
+<tr><td style="text-align: left"><code>create_graph</code></td><td style="text-align: left"><code>bool</code></td><td style="text-align: left"><strong>Optional</strong>. Whether to create the graph</td></tr>
+<tr><td style="text-align: left"><code>create_svg</code></td><td style="text-align: left"><code>bool</code></td><td style="text-align: left"><strong>Optional</strong>. Whether to create the svg</td></tr>
+</tbody></table>
+</div>
+<p>This call allows the library to save the provenance graph in the specified directory. </p>
+<p><a href="README.html">Home</a> | <a href="installation.html">Prev</a> | <a href="prov_graph.html">Next</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="provenance-graph-creation-graphviz"><a class="header" href="#provenance-graph-creation-graphviz">Provenance Graph Creation (GraphViz)</a></h2>
+<p>The standard method to generate the .dot file containing the provenance graph is to set the <code>create_graph</code> parameter to <code>True</code>. </p>
+<p>If the user necessitates to turn a PROV-JSON created with yProv4ML into a .dot file, the following code command can be used: </p>
+<pre><code class="language-bash">python -m prov4ml.prov2dot --prov_json prov.json --output prov_graph.dot
+</code></pre>
+<h2 id="provenance-graph-image-svg"><a class="header" href="#provenance-graph-image-svg">Provenance Graph Image (SVG)</a></h2>
+<p>The standard method to generate the .svg image of the provenance graph is to set the <code>create_svg</code> parameter to <code>True</code>.
+In this case both <code>create_graph</code> and <code>create_svg</code>have to be set to <code>True</code>.</p>
+<p>If the user necessitates to turn a .dot file into a .svg file, the following code command can be used: </p>
+<pre><code class="language-bash">python -m prov4ml.dot2svg --dot prov_graph.dot --output prov_graph.svg
+</code></pre>
+<p>Or alternatively, using directly the Graphviz suite: </p>
+<pre><code class="language-bash">dot -Tsvg -O prov_graph.dot
+</code></pre>
+<p><a href="README.html">Home</a> | <a href="setup.html">Prev</a> | <a href="logging.html">Next</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="general-logging"><a class="header" href="#general-logging">General Logging</a></h1>
+<p>When logging parameters and metrics, the user must specify the context of the information. 
+The available contexts are: </p>
+<ul>
+<li><code>TRAINING</code>: adds the information to the training context</li>
+<li><code>VALIDATION</code>: adds the information to the validation context</li>
+<li><code>TESTING</code>: adds the information to the testing context</li>
+</ul>
+<h2 id="log-parameters"><a class="header" href="#log-parameters">Log Parameters</a></h2>
+<p>To specify arbitrary training parameters used during the execution of the experiment, the user can call the following function. </p>
+<pre><code class="language-python">prov4ml.log_param(
+    key: str, 
+    value: str, 
+)
+</code></pre>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Parameter</th><th style="text-align: left">Type</th><th style="text-align: left">Description</th></tr></thead><tbody>
+<tr><td style="text-align: left"><code>key</code></td><td style="text-align: left"><code>string</code></td><td style="text-align: left"><strong>Required</strong>. Name of the parameter</td></tr>
+<tr><td style="text-align: left"><code>value</code></td><td style="text-align: left"><code>string</code></td><td style="text-align: left"><strong>Required</strong>. Value of the parameter</td></tr>
+</tbody></table>
+</div>
+<h2 id="log-metrics"><a class="header" href="#log-metrics">Log Metrics</a></h2>
+<p>To specify metrics, which can be tracked during the execution of the experiment, the user can call the following function.</p>
+<pre><code class="language-python">prov4ml.log_metric(
+    key: str, 
+    value: float, 
+    context:Context, 
+    step: Optional[int] = None, 
+    source: LoggingItemKind = None, 
+)
+</code></pre>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Parameter</th><th style="text-align: left">Type</th><th style="text-align: left">Description</th></tr></thead><tbody>
+<tr><td style="text-align: left"><code>key</code></td><td style="text-align: left"><code>string</code></td><td style="text-align: left"><strong>Required</strong>. Name of the metric</td></tr>
+<tr><td style="text-align: left"><code>value</code></td><td style="text-align: left"><code>float</code></td><td style="text-align: left"><strong>Required</strong>. Value of the metric</td></tr>
+<tr><td style="text-align: left"><code>context</code></td><td style="text-align: left"><code>prov4ml.Context</code></td><td style="text-align: left"><strong>Required</strong>. Context of the metric</td></tr>
+<tr><td style="text-align: left"><code>step</code></td><td style="text-align: left"><code>int</code></td><td style="text-align: left"><strong>Optional</strong>. Step of the metric</td></tr>
+<tr><td style="text-align: left"><code>source</code></td><td style="text-align: left"><code>LoggingItemKind</code></td><td style="text-align: left"><strong>Optional</strong>. Source of the metric</td></tr>
+</tbody></table>
+</div>
+<p>The <em>step</em> parameter is optional and can be used to specify the current time step of the experiment, for example the current epoch.
+The <em>source</em> parameter is optional and can be used to specify the source of the metric, so for example which library the data comes from. If omitted, yProv4ML will try to automatically determine the origin. </p>
+<h2 id="log-artifacts"><a class="header" href="#log-artifacts">Log Artifacts</a></h2>
+<p>To log artifacts, the user can call the following function.</p>
+<pre><code class="language-python">prov4ml.log_artifact(
+    artifact_path : str, 
+    context: Context,
+    step: Optional[int] = None, 
+    timestamp: Optional[int] = None
+)
+</code></pre>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Parameter</th><th style="text-align: left">Type</th><th style="text-align: left">Description</th></tr></thead><tbody>
+<tr><td style="text-align: left"><code>artifact_path</code></td><td style="text-align: left"><code>string</code></td><td style="text-align: left"><strong>Required</strong>. Path to the artifact</td></tr>
+<tr><td style="text-align: left"><code>context</code></td><td style="text-align: left"><code>prov4ml.Context</code></td><td style="text-align: left"><strong>Required</strong>. Context of the artifact</td></tr>
+<tr><td style="text-align: left"><code>step</code></td><td style="text-align: left"><code>int</code></td><td style="text-align: left"><strong>Optional</strong>. Step of the artifact</td></tr>
+<tr><td style="text-align: left"><code>timestamp</code></td><td style="text-align: left"><code>int</code></td><td style="text-align: left"><strong>Optional</strong>. Timestamp of the artifact</td></tr>
+</tbody></table>
+</div>
+<p>The function logs the artifact in the current experiment. The artifact can be a file or a directory. 
+All logged artifacts are saved in the artifacts directory of the current experiment, while the related information is saved in the PROV-JSON file, along with a reference to the file. </p>
+<h2 id="log-models"><a class="header" href="#log-models">Log Models</a></h2>
+<pre><code class="language-python">prov4ml.log_model(
+    model: Union[torch.nn.Module, Any], 
+    model_name: str = &quot;default&quot;, 
+    log_model_info: bool = True, 
+    log_as_artifact=True, 
+)
+</code></pre>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Parameter</th><th style="text-align: left">Type</th><th style="text-align: left">Description</th></tr></thead><tbody>
+<tr><td style="text-align: left"><code>model</code></td><td style="text-align: left"><code>Union[torch.nn.Module, Any]</code></td><td style="text-align: left"><strong>Required</strong>. The model to be logged</td></tr>
+<tr><td style="text-align: left"><code>model_name</code></td><td style="text-align: left"><code>string</code></td><td style="text-align: left"><strong>Optional</strong>. Name of the model</td></tr>
+<tr><td style="text-align: left"><code>log_model_info</code></td><td style="text-align: left"><code>bool</code></td><td style="text-align: left"><strong>Optional</strong>. Whether to log model information</td></tr>
+<tr><td style="text-align: left"><code>log_as_artifact</code></td><td style="text-align: left"><code>bool</code></td><td style="text-align: left"><strong>Optional</strong>. Whether to log the model as an artifact</td></tr>
+</tbody></table>
+</div>
+<p>It sets the model for the current experiment. It can be called anywhere before the end of the experiment. 
+The same call also logs some model information, such as the number of parameters and the model architecture memory footprint. 
+The saving of these information can be toggled with the <code>log_model_info = False</code> parameter. 
+The model can be saved as an artifact by setting the <code>log_as_artifact = True</code> parameter, which will save its parameters in the artifacts directory and reference the file in the PROV-JSON file.</p>
+<pre><code class="language-python">prov4ml.save_model_version(
+    model: Union[torch.nn.Module, Any], 
+    model_name: str, 
+    context: Context, 
+    step: Optional[int] = None, 
+    timestamp: Optional[int] = None
+)
+</code></pre>
+<p>The save_model_version function saves the state of a PyTorch model and logs it as an artifact, enabling version control and tracking within machine learning experiments.</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Parameter</th><th style="text-align: left">Type</th><th style="text-align: left">Description</th></tr></thead><tbody>
+<tr><td style="text-align: left"><code>model</code></td><td style="text-align: left"><code>torch.nn.Module</code></td><td style="text-align: left"><strong>Required</strong>. The PyTorch model to be saved.</td></tr>
+<tr><td style="text-align: left"><code>model_name</code></td><td style="text-align: left"><code>str</code></td><td style="text-align: left"><strong>Required</strong>. The name under which to save the model.</td></tr>
+<tr><td style="text-align: left"><code>context</code></td><td style="text-align: left"><code>Context</code></td><td style="text-align: left"><strong>Required</strong>. The context in which the model is saved.</td></tr>
+<tr><td style="text-align: left"><code>step</code></td><td style="text-align: left"><code>Optional[int]</code></td><td style="text-align: left"><strong>Optional</strong>. The step or epoch number associated with the saved model.</td></tr>
+<tr><td style="text-align: left"><code>timestamp</code></td><td style="text-align: left"><code>Optional[int]</code></td><td style="text-align: left"><strong>Optional</strong>. The timestamp associated with the saved model.</td></tr>
+</tbody></table>
+</div>
+<p>This function saves the model's state dictionary to a specified directory and logs the saved model file as an artifact for provenance tracking. It ensures that the directory for saving the model exists, creates it if necessary, and uses the <code>torch.save</code> method to save the model. It then logs the saved model file using <code>log_artifact</code>, associating it with the given context and optional step number.</p>
+<h2 id="log-datasets"><a class="header" href="#log-datasets">Log Datasets</a></h2>
+<p>yProv4ML offers helper functions to log information and stats on specific datasets.</p>
+<pre><code class="language-python">prov4ml.log_dataset(
+    dataset : Union[DataLoader, Subset, Dataset], 
+    label : str
+)
+</code></pre>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Parameter</th><th style="text-align: left">Type</th><th style="text-align: left">Description</th></tr></thead><tbody>
+<tr><td style="text-align: left"><code>dataset</code></td><td style="text-align: left"><code>Union[DataLoader, Subset, Dataset]</code></td><td style="text-align: left"><strong>Required</strong>. The dataset to be logged</td></tr>
+<tr><td style="text-align: left"><code>label</code></td><td style="text-align: left"><code>string</code></td><td style="text-align: left"><strong>Required</strong>. The label of the dataset</td></tr>
+</tbody></table>
+</div>
+<p>The function logs the dataset in the current experiment. The dataset can be a DataLoader, a Subset, or a Dataset class from pytorch.</p>
+<p><a href="README.html">Home</a> | <a href="prov_graph.html">Prev</a> | <a href="prov_collection.html">Next</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="provenance-collection-creation"><a class="header" href="#provenance-collection-creation">Provenance Collection Creation</a></h1>
+<p>The provenance collection functionality can be used to create a summary file linking all PROV-JSON files generated during a run. These files come from distributed execution, where each process generates its own log file, and the user may want to create a single file containing all the information.</p>
+<p>The collection can be created with the following command: </p>
+<pre><code class="language-bash">python -m prov4ml.prov_collection --experiment_path experiment_path --output_dir output_dir
+</code></pre>
+<p>Where <code>experiment_path</code> is the path to the experiment directory containing all the PROV-JSON files, and <code>output_dir</code> is the directory where the collection file will be saved. </p>
+<p><a href="README.html">Home</a> | <a href="prov_collection.html">Prev</a> | <a href="carbon.html">Next</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="carbon-metrics"><a class="header" href="#carbon-metrics">Carbon Metrics</a></h1>
+<p>The prov4ml.log_carbon_metrics function logs carbon-related system metrics during machine learning experiments. 
+The information logged is related to the time between the last call to the function and the current call.</p>
+<pre><code class="language-python">prov4ml.log_carbon_metrics(
+    context: Context,
+    step: Optional[int] = None,
+)
+</code></pre>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Parameter</th><th style="text-align: left">Type</th><th style="text-align: left">Description</th></tr></thead><tbody>
+<tr><td style="text-align: left"><code>context</code></td><td style="text-align: left"><code>prov4ml.Context</code></td><td style="text-align: left"><strong>Required</strong>. Context of the metric</td></tr>
+<tr><td style="text-align: left"><code>step</code></td><td style="text-align: left"><code>int</code></td><td style="text-align: left"><strong>Optional</strong>. Step of the metric</td></tr>
+</tbody></table>
+</div>
+<p>This function logs the following system metrics:</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Parameter</th><th style="text-align: center">Description</th><th style="text-align: center">Unit</th></tr></thead><tbody>
+<tr><td style="text-align: left"><code>Emissions</code></td><td style="text-align: center">Emissions of the system</td><td style="text-align: center">gCO2eq</td></tr>
+<tr><td style="text-align: left"><code>Emissions rate</code></td><td style="text-align: center">Emissions rate of the system</td><td style="text-align: center">gCO2eq/s</td></tr>
+<tr><td style="text-align: left"><code>CPU power</code></td><td style="text-align: center">Power usage of the CPU</td><td style="text-align: center">W</td></tr>
+<tr><td style="text-align: left"><code>GPU power</code></td><td style="text-align: center">Power usage of the GPU</td><td style="text-align: center">W</td></tr>
+<tr><td style="text-align: left"><code>RAM power</code></td><td style="text-align: center">Power usage of the RAM</td><td style="text-align: center">W</td></tr>
+<tr><td style="text-align: left"><code>CPU energy</code></td><td style="text-align: center">Energy usage of the CPU</td><td style="text-align: center">J</td></tr>
+<tr><td style="text-align: left"><code>GPU energy</code></td><td style="text-align: center">Energy usage of the GPU</td><td style="text-align: center">J</td></tr>
+<tr><td style="text-align: left"><code>RAM energy</code></td><td style="text-align: center">Energy usage of the RAM</td><td style="text-align: center">J</td></tr>
+<tr><td style="text-align: left"><code>Energy consumed</code></td><td style="text-align: center">Energy consumed by the system</td><td style="text-align: center">J</td></tr>
+</tbody></table>
+</div>
+<h3 id="how-is-co2eq-calculated"><a class="header" href="#how-is-co2eq-calculated">How is CO2Eq calculated?</a></h3>
+<p>The CO2 equivalent (CO2eq) is a metric used to compare the emissions of CO2. </p>
+<ul>
+<li><strong>CO2eq</strong> is calculated by multiplying the energy consumed by the system by carbon intensity.</li>
+<li><strong>Energy</strong> is calculated by multiplying the power usage by the time interval, this is done for each component (CPU, GPU, RAM).</li>
+<li><strong>Carbon intensity</strong> is the amount of CO2 emitted per unit of energy consumed. It can be obtained in three ways:
+<ul>
+<li>Using cloud providers' carbon intensity data (Google). </li>
+<li>Using the carbon intensity of the grid where the system is running (per country).</li>
+<li>Using the electricity mix of the grid where the system is running (renewables / gas / petroleum / coal).</li>
+</ul>
+</li>
+</ul>
+<h3 id="why-is-it-decreasing"><a class="header" href="#why-is-it-decreasing">Why is it decreasing?</a></h3>
+<p>The emissions rate can decrease due to the following reasons:</p>
+<ul>
+<li><strong>Idle time</strong>: The system is not being used, so the power usage is low.</li>
+<li><strong>Energy efficiency</strong>: The system is using less power to perform the same tasks.</li>
+<li><strong>Startup time</strong>: The system is starting up, so the power usage is high at the beginning.</li>
+</ul>
+<p>After plotting the metrics saved with codecarbon, we can see that the emissions rate decreases over time. </p>
+<p><img src="../assets/codecarbon_metrics.png" alt="Emissions Rate" /></p>
+<p>This shows that energy is mostly constant over time, while the emissions rate decreases. This is due to the ratio between energy and time, which is decreasing over time.</p>
+<p><a href="README.html">Home</a> | <a href="carbon.html">Prev</a> | <a href="system.html">Next</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="system-metrics"><a class="header" href="#system-metrics">System Metrics</a></h1>
+<p>The prov4ml.log_system_metrics function logs critical system performance metrics during machine learning experiments.
+The information logged is related to the time between the last call to the function and the current call.</p>
+<pre><code class="language-python">prov4ml.log_system_metrics(
+    context: Context,
+    step: Optional[int] = None,
+)
+</code></pre>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Parameter</th><th style="text-align: left">Type</th><th style="text-align: left">Description</th></tr></thead><tbody>
+<tr><td style="text-align: left"><code>context</code></td><td style="text-align: left"><code>prov4ml.Context</code></td><td style="text-align: left"><strong>Required</strong>. Context of the metric</td></tr>
+<tr><td style="text-align: left"><code>step</code></td><td style="text-align: left"><code>int</code></td><td style="text-align: left"><strong>Optional</strong>. Step of the metric</td></tr>
+<tr><td style="text-align: left"><code>synchronous</code></td><td style="text-align: left"><code>bool</code></td><td style="text-align: left"><strong>Optional</strong>. Whether to log the metric synchronously</td></tr>
+<tr><td style="text-align: left"><code>timestamp</code></td><td style="text-align: left"><code>int</code></td><td style="text-align: left"><strong>Optional</strong>. Timestamp of the metric</td></tr>
+</tbody></table>
+</div>
+<p>This function logs the following system metrics:</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Parameter</th><th style="text-align: center">Description</th><th style="text-align: center">Unit</th></tr></thead><tbody>
+<tr><td style="text-align: left"><code>Memory usage</code></td><td style="text-align: center">Memory usage of the system</td><td style="text-align: center">%</td></tr>
+<tr><td style="text-align: left"><code>Disk usage</code></td><td style="text-align: center">Disk usage of the system</td><td style="text-align: center">%</td></tr>
+<tr><td style="text-align: left"><code>Gpu memory usage</code></td><td style="text-align: center">Memory usage of the GPU</td><td style="text-align: center">%</td></tr>
+<tr><td style="text-align: left"><code>Gpu usage</code></td><td style="text-align: center">Usage of the GPU</td><td style="text-align: center">%</td></tr>
+</tbody></table>
+</div>
+<h1 id="flops-per-epoch"><a class="header" href="#flops-per-epoch">FLOPs per Epoch</a></h1>
+<p>The log_flops_per_epoch function logs the number of floating-point operations (FLOPs) performed per epoch for a given model and dataset. </p>
+<pre><code class="language-python">prov4ml.log_flops_per_epoch(
+    label: str, 
+    model: Union[torch.nn.Module, Any],
+    dataset: Union[torch.utils.data.Dataset, torch.utils.data.DataLoader, torch.utils.data.Subset], 
+    context: Context, 
+    step: Optional[int] = None
+):
+</code></pre>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Parameter</th><th style="text-align: left">Type</th><th style="text-align: left">Description</th></tr></thead><tbody>
+<tr><td style="text-align: left"><code>label</code></td><td style="text-align: left"><code>string</code></td><td style="text-align: left"><strong>Required</strong>. Label of the FLOPs</td></tr>
+<tr><td style="text-align: left"><code>model</code></td><td style="text-align: left"><code>Union[torch.nn.Module, Any]</code></td><td style="text-align: left"><strong>Required</strong>. Model used for the FLOPs calculation</td></tr>
+<tr><td style="text-align: left"><code>dataset</code></td><td style="text-align: left"><code>string</code></td><td style="text-align: left"><strong>Required</strong>. Dataset used for the FLOPs calculation</td></tr>
+<tr><td style="text-align: left"><code>context</code></td><td style="text-align: left"><code>prov4ml.Context</code></td><td style="text-align: left"><strong>Required</strong>. Context of the metric</td></tr>
+<tr><td style="text-align: left"><code>step</code></td><td style="text-align: left"><code>int</code></td><td style="text-align: left"><strong>Optional</strong>. Step of the metric</td></tr>
+</tbody></table>
+</div>
+<h1 id="flops-per-batch"><a class="header" href="#flops-per-batch">FLOPs per Batch</a></h1>
+<p>The log_flops_per_batch function logs the number of floating-point operations (FLOPs) performed per batch for a given model and batch of data. </p>
+<pre><code class="language-python">prov4ml.log_flops_per_batch(
+    label: str, 
+    model: Union[torch.nn.Module, Any],
+    batch: Any, 
+    context: Context, 
+    step: Optional[int] = None, 
+):
+</code></pre>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Parameter</th><th style="text-align: left">Type</th><th style="text-align: left">Description</th></tr></thead><tbody>
+<tr><td style="text-align: left"><code>label</code></td><td style="text-align: left"><code>string</code></td><td style="text-align: left"><strong>Required</strong>. Label of the FLOPs</td></tr>
+<tr><td style="text-align: left"><code>model</code></td><td style="text-align: left"><code>Union[torch.nn.Module, Any]</code></td><td style="text-align: left"><strong>Required</strong>. Model used for the FLOPs calculation</td></tr>
+<tr><td style="text-align: left"><code>batch</code></td><td style="text-align: left"><code>Any</code></td><td style="text-align: left"><strong>Required</strong>. Batch of data used for the FLOPs calculation</td></tr>
+<tr><td style="text-align: left"><code>context</code></td><td style="text-align: left"><code>prov4ml.Context</code></td><td style="text-align: left"><strong>Required</strong>. Context of the metric</td></tr>
+<tr><td style="text-align: left"><code>step</code></td><td style="text-align: left"><code>int</code></td><td style="text-align: left"><strong>Optional</strong>. Step of the metric</td></tr>
+</tbody></table>
+</div>
+<p><a href="README.html">Home</a> | <a href="carbon.html">Prev</a> | <a href="time.html">Next</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="execution-time"><a class="header" href="#execution-time">Execution Time</a></h1>
+<pre><code class="language-python">prov4ml.log_current_execution_time(
+    label: str, 
+    context: Context, 
+    step: Optional[int] = None
+)
+</code></pre>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Parameter</th><th style="text-align: left">Type</th><th style="text-align: left">Description</th></tr></thead><tbody>
+<tr><td style="text-align: left"><code>label</code></td><td style="text-align: left"><code>string</code></td><td style="text-align: left"><strong>Required</strong>. Label of the code portion</td></tr>
+<tr><td style="text-align: left"><code>context</code></td><td style="text-align: left"><code>prov4ml.Context</code></td><td style="text-align: left"><strong>Required</strong>. Context of the metric</td></tr>
+<tr><td style="text-align: left"><code>step</code></td><td style="text-align: left"><code>int</code></td><td style="text-align: left"><strong>Optional</strong>. Step of the metric</td></tr>
+</tbody></table>
+</div>
+<p>The <em>log_current_execution_time</em> function logs the current execution time of the code portion specified by the label.</p>
+<pre><code class="language-python">prov4ml.log_execution_start_time()
+</code></pre>
+<p>The <em>log_execution_start_time</em> function logs the start time of the current execution. 
+It is automatically called at the beginning of the experiment.</p>
+<pre><code class="language-python">prov4ml.log_execution_end_time()
+</code></pre>
+<p>The <em>log_execution_end_time</em> function logs the end time of the current execution.
+It is automatically called at the end of the experiment.</p>
+<p><a href="README.html">Home</a> | <a href="system.html">Prev</a> | <a href="registering_metrics.html">Next</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="register-metrics-for-custom-operations"><a class="header" href="#register-metrics-for-custom-operations">Register Metrics for custom Operations</a></h1>
+<p>After collection of a specific metric, it's very often the case that a user may want to aggregate that information by applying functions such as mean, standard deviation, or min/max. </p>
+<p>yProv4ML allows to register a specific metric to be aggregated, using the function: </p>
+<pre><code class="language-python">prov4ml.register_final_metric(
+    metric_name : str,
+    initial_value : float,
+    fold_operation : FoldOperation
+) 
+</code></pre>
+<p>where <code>fold_operation</code> indicates the function to be applied to the data. </p>
+<p>Several FoldOperations are already defined, such as MAX, MIN, ADD and SUBRACT. 
+In any case the user is always able to define its own custom function, by either defining one with signature: </p>
+<pre><code class="language-python">def custom_foldOperation(x, y): 
+    return x // y
+</code></pre>
+<p>Or by passing a lambda function: </p>
+<pre><code class="language-python">prov4ml.register_final_metric(&quot;my_metric&quot;, 0, lambda x, y: x // y) 
+</code></pre>
+<p>The output of the aggregated metric is saved in the PROV-JSON file, as an attribute of the current execution. </p>
+<p><a href="README.html">Home</a> | <a href="time.html">Prev</a> | <a href="usage_pytorch.html">Next</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="example-of-usage-with-pytorch"><a class="header" href="#example-of-usage-with-pytorch">Example of usage with PyTorch</a></h1>
+<p>This section provides an example of how to use Prov4ML with PyTorch.</p>
+<p>The following code snippet shows how to log metrics, system metrics, carbon metrics, and model versions in a PyTorch training loop.</p>
+<h4 id="example"><a class="header" href="#example">Example</a></h4>
+<pre><code class="language-python">for epoch in tqdm(range(EPOCHS)):
+    for i, (x, y) in enumerate(train_loader):
+        optim.zero_grad()
+        y_hat = mnist_model(x)
+        loss = F.cross_entropy(y_hat, y)
+        loss.backward()
+        optim.step()
+        prov4ml.log_metric(&quot;MSE_train&quot;, loss, context=prov4ml.Context.TRAINING, step=epoch)
+    
+    # log system and carbon metrics (once per epoch), as well as the execution time
+    prov4ml.log_carbon_metrics(prov4ml.Context.TRAINING, step=epoch)
+    prov4ml.log_system_metrics(prov4ml.Context.TRAINING, step=epoch)
+    # save incremental model versions
+    prov4ml.save_model_version(mnist_model, f&quot;mnist_model_version_{epoch}&quot;, prov4ml.Context.TRAINING, epoch)
+     
+</code></pre>
+<p><a href="README.html">Home</a> | <a href="registering_metrics.html">Prev</a> | <a href="usage_lightning.html">Next</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="example-of-usage-with-pytorch-lightning"><a class="header" href="#example-of-usage-with-pytorch-lightning">Example of usage with PyTorch Lightning</a></h1>
+<p>This section provides an example of how to use Prov4ML with PyTorch Lightning.</p>
+<p>In any lightning module the calls to <code>train_step</code>, <code>validation_step</code>, and <code>test_step</code> can be overridden to log the necessary information.</p>
+<pre><code class="language-python">def training_step(self, batch, batch_idx):
+    x, y = batch
+    y_hat = self(x)
+    loss = self.loss(y_hat, y)
+    prov4ml.log_metric(&quot;MSE_train&quot;, loss, prov4ml.Context.TRAINING, step=self.current_epoch)
+    prov4ml.log_flops_per_batch(&quot;train_flops&quot;, self, batch, prov4ml.Context.TRAINING,step=self.current_epoch)
+    return loss
+</code></pre>
+<p>This will log the mean squared error and the number of flops per batch for each the training step.</p>
+<p>Alternatively, the <code>on_train_epoch_end</code> method can be overridden to log information at the end of each epoch.</p>
+<pre><code class="language-python">def on_train_epoch_end(self) -&gt; None:
+    prov4ml.log_metric(&quot;epoch&quot;, self.current_epoch, prov4ml.Context.TRAINING, step=self.current_epoch)
+    prov4ml.save_model_version(self, f&quot;model_version_{self.current_epoch}&quot;, prov4ml.Context.TRAINING, step=self.current_epoch)
+    prov4ml.log_system_metrics(prov4ml.Context.TRAINING,step=self.current_epoch)
+    prov4ml.log_carbon_metrics(prov4ml.Context.TRAINING,step=self.current_epoch)
+    prov4ml.log_current_execution_time(&quot;train_epoch_time&quot;, prov4ml.Context.TRAINING, self.current_epoch)
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">

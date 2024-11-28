@@ -12,21 +12,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        <link rel="icon" href="../favicon.svg">
-        <link rel="shortcut icon" href="../favicon.png">
-        <link rel="stylesheet" href="../css/variables.css">
-        <link rel="stylesheet" href="../css/general.css">
-        <link rel="stylesheet" href="../css/chrome.css">
-        <link rel="stylesheet" href="../css/print.css" media="print">
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="../fonts/fonts.css">
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="../highlight.css">
-        <link rel="stylesheet" href="../tomorrow-night.css">
-        <link rel="stylesheet" href="../ayu-highlight.css">
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
 
@@ -35,7 +35,7 @@
     <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
-            var path_to_root = "../";
+            var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../src/installation.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../src/setup.html"><strong aria-hidden="true">2.</strong> Setup</a></li><li class="chapter-item expanded "><a href="../src/prov_graph.html"><strong aria-hidden="true">3.</strong> Provenance Graph</a></li><li class="chapter-item expanded "><a href="../src/logging.html"><strong aria-hidden="true">4.</strong> Logging</a></li><li class="chapter-item expanded "><a href="../src/prov_collection.html"><strong aria-hidden="true">5.</strong> Prov Collection</a></li><li class="chapter-item expanded "><a href="../src/carbon.html"><strong aria-hidden="true">6.</strong> Carbon Metrics</a></li><li class="chapter-item expanded "><a href="../src/system.html"><strong aria-hidden="true">7.</strong> System Metrics</a></li><li class="chapter-item expanded "><a href="../src/time.html"><strong aria-hidden="true">8.</strong> Time Metrics</a></li><li class="chapter-item expanded "><a href="../src/registering_metrics.html"><strong aria-hidden="true">9.</strong> Registering Metrics</a></li><li class="chapter-item expanded "><a href="../src/usage_pytorch.html" class="active"><strong aria-hidden="true">10.</strong> Usage with PyTorch</a></li><li class="chapter-item expanded "><a href="../src/usage_lightning.html"><strong aria-hidden="true">11.</strong> Usage with Lightning</a></li><li class="chapter-item expanded "><a href="../src/usage_itwinAI_logger.html"><strong aria-hidden="true">12.</strong> Usage with ItwinAI Logger</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="setup.html"><strong aria-hidden="true">2.</strong> Setup</a></li><li class="chapter-item expanded "><a href="prov_graph.html"><strong aria-hidden="true">3.</strong> Provenance Graph</a></li><li class="chapter-item expanded "><a href="logging.html"><strong aria-hidden="true">4.</strong> Logging</a></li><li class="chapter-item expanded "><a href="prov_collection.html"><strong aria-hidden="true">5.</strong> Prov Collection</a></li><li class="chapter-item expanded "><a href="carbon.html"><strong aria-hidden="true">6.</strong> Carbon Metrics</a></li><li class="chapter-item expanded "><a href="system.html"><strong aria-hidden="true">7.</strong> System Metrics</a></li><li class="chapter-item expanded "><a href="time.html"><strong aria-hidden="true">8.</strong> Time Metrics</a></li><li class="chapter-item expanded "><a href="registering_metrics.html"><strong aria-hidden="true">9.</strong> Registering Metrics</a></li><li class="chapter-item expanded "><a href="usage_pytorch.html" class="active"><strong aria-hidden="true">10.</strong> Usage with PyTorch</a></li><li class="chapter-item expanded "><a href="usage_lightning.html"><strong aria-hidden="true">11.</strong> Usage with Lightning</a></li><li class="chapter-item expanded "><a href="usage_itwinAI_logger.html"><strong aria-hidden="true">12.</strong> Usage with ItwinAI Logger</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -115,7 +115,7 @@
                     <h1 class="menu-title">yProv4ML Documentation</h1>
 
                     <div class="right-buttons">
-                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
 
@@ -144,17 +144,37 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="usage-with-pytorch"><a class="header" href="#usage-with-pytorch">Usage with PyTorch</a></h1>
+                        <h1 id="example-of-usage-with-pytorch"><a class="header" href="#example-of-usage-with-pytorch">Example of usage with PyTorch</a></h1>
+<p>This section provides an example of how to use Prov4ML with PyTorch.</p>
+<p>The following code snippet shows how to log metrics, system metrics, carbon metrics, and model versions in a PyTorch training loop.</p>
+<h4 id="example"><a class="header" href="#example">Example</a></h4>
+<pre><code class="language-python">for epoch in tqdm(range(EPOCHS)):
+    for i, (x, y) in enumerate(train_loader):
+        optim.zero_grad()
+        y_hat = mnist_model(x)
+        loss = F.cross_entropy(y_hat, y)
+        loss.backward()
+        optim.step()
+        prov4ml.log_metric(&quot;MSE_train&quot;, loss, context=prov4ml.Context.TRAINING, step=epoch)
+    
+    # log system and carbon metrics (once per epoch), as well as the execution time
+    prov4ml.log_carbon_metrics(prov4ml.Context.TRAINING, step=epoch)
+    prov4ml.log_system_metrics(prov4ml.Context.TRAINING, step=epoch)
+    # save incremental model versions
+    prov4ml.save_model_version(mnist_model, f&quot;mnist_model_version_{epoch}&quot;, prov4ml.Context.TRAINING, epoch)
+     
+</code></pre>
+<p><a href="README.html">Home</a> | <a href="registering_metrics.html">Prev</a> | <a href="usage_lightning.html">Next</a></p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../src/registering_metrics.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="registering_metrics.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="../src/usage_lightning.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="usage_lightning.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -164,11 +184,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../src/registering_metrics.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="registering_metrics.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="../src/usage_lightning.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="usage_lightning.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
@@ -183,13 +203,13 @@
         </script>
 
 
-        <script src="../elasticlunr.min.js"></script>
-        <script src="../mark.min.js"></script>
-        <script src="../searcher.js"></script>
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
 
-        <script src="../clipboard.min.js"></script>
-        <script src="../highlight.js"></script>
-        <script src="../book.js"></script>
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
 
