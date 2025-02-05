@@ -1,6 +1,10 @@
 
 # Provenance Collection Creation
 
+```admonish danger
+This feature is temporarily removed
+```
+
 The provenance collection functionality can be used to create a summary file linking all PROV-JSON files generated during a run. These files come from distributed execution, where each process generates its own log file, and the user may want to create a single file containing all the information.
 
 The collection can be created with the following command: 

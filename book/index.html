@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Installation - yProv4ML Documentation</title>
+        <title>Introduction - yProv4ML Documentation</title>
 
 
         <!-- Custom HTML head -->
@@ -29,6 +29,7 @@
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="./mdbook-admonish.css">
 
     </head>
     <body>
@@ -83,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="installation.html" class="active"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="setup.html"><strong aria-hidden="true">2.</strong> Setup</a></li><li class="chapter-item expanded "><a href="prov_graph.html"><strong aria-hidden="true">3.</strong> Provenance Graph</a></li><li class="chapter-item expanded "><a href="logging.html"><strong aria-hidden="true">4.</strong> Logging</a></li><li class="chapter-item expanded "><a href="prov_collection.html"><strong aria-hidden="true">5.</strong> Prov Collection</a></li><li class="chapter-item expanded "><a href="carbon.html"><strong aria-hidden="true">6.</strong> Carbon Metrics</a></li><li class="chapter-item expanded "><a href="system.html"><strong aria-hidden="true">7.</strong> System Metrics</a></li><li class="chapter-item expanded "><a href="time.html"><strong aria-hidden="true">8.</strong> Time Metrics</a></li><li class="chapter-item expanded "><a href="registering_metrics.html"><strong aria-hidden="true">9.</strong> Registering Metrics</a></li><li class="chapter-item expanded "><a href="usage_pytorch.html"><strong aria-hidden="true">10.</strong> Usage with PyTorch</a></li><li class="chapter-item expanded "><a href="usage_lightning.html"><strong aria-hidden="true">11.</strong> Usage with Lightning</a></li><li class="chapter-item expanded "><a href="usage_itwinAI_logger.html"><strong aria-hidden="true">12.</strong> Usage with ItwinAI Logger</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html" class="active"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="setup.html"><strong aria-hidden="true">3.</strong> Setup</a></li><li class="chapter-item expanded "><a href="prov_graph.html"><strong aria-hidden="true">4.</strong> Provenance Graph</a></li><li class="chapter-item expanded "><a href="logging.html"><strong aria-hidden="true">5.</strong> Logging</a></li><li class="chapter-item expanded "><a href="prov_collection.html"><strong aria-hidden="true">6.</strong> Prov Collection</a></li><li class="chapter-item expanded "><a href="carbon.html"><strong aria-hidden="true">7.</strong> Carbon Metrics</a></li><li class="chapter-item expanded "><a href="system.html"><strong aria-hidden="true">8.</strong> System Metrics</a></li><li class="chapter-item expanded "><a href="time.html"><strong aria-hidden="true">9.</strong> Time Metrics</a></li><li class="chapter-item expanded "><a href="registering_metrics.html"><strong aria-hidden="true">10.</strong> Registering Metrics</a></li><li class="chapter-item expanded "><a href="reproducibility.html"><strong aria-hidden="true">11.</strong> Reproducibility</a></li><li class="chapter-item expanded "><a href="usage_pytorch.html"><strong aria-hidden="true">12.</strong> Usage with PyTorch</a></li><li class="chapter-item expanded "><a href="usage_lightning.html"><strong aria-hidden="true">13.</strong> Usage with Lightning</a></li><li class="chapter-item expanded "><a href="usage_itwinAI_logger.html"><strong aria-hidden="true">14.</strong> Usage with ItwinAI Logger</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -144,32 +145,36 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="installation"><a class="header" href="#installation">Installation</a></h1>
-<p>Install from the repository:</p>
-<pre><code class="language-bash">git clone https://github.com/HPCI-Lab/yProvML.git
-cd yProvML
-
-pip install -r requirements.txt
-# Install the package
-pip install .
-# Use apple extra if on a Mac
-pip install .[apple]
-
-# or install for specific arch
-pip install .[nvidia] # or .[amd]
-
-</code></pre>
-<p>or simply:</p>
-<pre><code class="language-bash">pip install --no-cache-dir git+https://github.com/HPCI-Lab/yProvML
-</code></pre>
-<p><a href="README.html">Home</a> | <a href="setup.html">Next</a></p>
+                        <h1 id="yprov4ml"><a class="header" href="#yprov4ml">yProv4ML</a></h1>
+<p><a href="https://opensource.org/licenses/"><img src="https://img.shields.io/badge/License-GPL%20v3-yellow.svg" alt="GPLv3 License" /></a></p>
+<p>This library is part of the yProv suite, and provides a unified interface for logging and tracking provenance information in machine learning experiments, both on distributed as well as large scale experiments. </p>
+<p>It allows users to create provenance graphs from the logged information, and save all metrics and parameters to json format.</p>
+<h2 id="data-model"><a class="header" href="#data-model">Data Model</a></h2>
+<p><img src="../assets/prov4ml.datamodel.png" alt="Data Model" /></p>
+<h2 id="example"><a class="header" href="#example">Example</a></h2>
+<p><img src="../assets/example.svg" alt="Example" /></p>
+<p>The image shown above has been generated from the <a href="./examples/mlflow_lightning.py">example</a> program provided in the <code>example</code> directory.</p>
+<h2 id="metrics-visualization"><a class="header" href="#metrics-visualization">Metrics Visualization</a></h2>
+<p><img src="../assets/System_Metrics.png" alt="Loss and GPU Usage" /></p>
+<p><img src="../assets/Emission_Rate.png" alt="Emission Rate" /> </p>
+<h2 id="experiments-and-runs"><a class="header" href="#experiments-and-runs">Experiments and Runs</a></h2>
+<p>An experiment is a collection of runs. Each run is a single execution of a machine learning model. 
+By changing the <code>experiment_name</code> parameter in the <code>start_run</code> function, the user can create a new experiment. 
+All artifacts and metrics logged during the execution of the experiment will be saved in the directory specified by the experiment ID. </p>
+<p>Several runs can be executed in the same experiment. All runs will be saved in the same directory (according to the specific experiment name and ID).</p>
+<h1 id="contributors"><a class="header" href="#contributors">Contributors</a></h1>
+<ul>
+<li><a href="https://github.com/lelepado01">Gabriele Padovani</a></li>
+<li><a href="https://github.com/lucadavii">Luca Davi</a></li>
+<li><a href="https://github.com/sandrofioretn">Sandro Luigi Fiore</a></li>
+</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
 
-                            <a rel="next" href="setup.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="installation.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -180,13 +185,29 @@ pip install .[nvidia] # or .[amd]
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
 
-                    <a rel="next" href="setup.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="installation.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 

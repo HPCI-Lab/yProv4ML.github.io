@@ -1,6 +1,11 @@
 
 # Carbon Metrics
 
+```admonish warning
+On some architectures, for example MacOS, the use of codecarbon will require sudo permissions. 
+If this feature is not necessary, it can be disabled when starting the new run. 
+```
+
 The prov4ml.log_carbon_metrics function logs carbon-related system metrics during machine learning experiments. 
 The information logged is related to the time between the last call to the function and the current call.
 

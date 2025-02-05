@@ -29,6 +29,7 @@
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="./mdbook-admonish.css">
 
     </head>
     <body>
@@ -83,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="setup.html"><strong aria-hidden="true">2.</strong> Setup</a></li><li class="chapter-item expanded "><a href="prov_graph.html"><strong aria-hidden="true">3.</strong> Provenance Graph</a></li><li class="chapter-item expanded "><a href="logging.html" class="active"><strong aria-hidden="true">4.</strong> Logging</a></li><li class="chapter-item expanded "><a href="prov_collection.html"><strong aria-hidden="true">5.</strong> Prov Collection</a></li><li class="chapter-item expanded "><a href="carbon.html"><strong aria-hidden="true">6.</strong> Carbon Metrics</a></li><li class="chapter-item expanded "><a href="system.html"><strong aria-hidden="true">7.</strong> System Metrics</a></li><li class="chapter-item expanded "><a href="time.html"><strong aria-hidden="true">8.</strong> Time Metrics</a></li><li class="chapter-item expanded "><a href="registering_metrics.html"><strong aria-hidden="true">9.</strong> Registering Metrics</a></li><li class="chapter-item expanded "><a href="usage_pytorch.html"><strong aria-hidden="true">10.</strong> Usage with PyTorch</a></li><li class="chapter-item expanded "><a href="usage_lightning.html"><strong aria-hidden="true">11.</strong> Usage with Lightning</a></li><li class="chapter-item expanded "><a href="usage_itwinAI_logger.html"><strong aria-hidden="true">12.</strong> Usage with ItwinAI Logger</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="setup.html"><strong aria-hidden="true">3.</strong> Setup</a></li><li class="chapter-item expanded "><a href="prov_graph.html"><strong aria-hidden="true">4.</strong> Provenance Graph</a></li><li class="chapter-item expanded "><a href="logging.html" class="active"><strong aria-hidden="true">5.</strong> Logging</a></li><li class="chapter-item expanded "><a href="prov_collection.html"><strong aria-hidden="true">6.</strong> Prov Collection</a></li><li class="chapter-item expanded "><a href="carbon.html"><strong aria-hidden="true">7.</strong> Carbon Metrics</a></li><li class="chapter-item expanded "><a href="system.html"><strong aria-hidden="true">8.</strong> System Metrics</a></li><li class="chapter-item expanded "><a href="time.html"><strong aria-hidden="true">9.</strong> Time Metrics</a></li><li class="chapter-item expanded "><a href="registering_metrics.html"><strong aria-hidden="true">10.</strong> Registering Metrics</a></li><li class="chapter-item expanded "><a href="reproducibility.html"><strong aria-hidden="true">11.</strong> Reproducibility</a></li><li class="chapter-item expanded "><a href="usage_pytorch.html"><strong aria-hidden="true">12.</strong> Usage with PyTorch</a></li><li class="chapter-item expanded "><a href="usage_lightning.html"><strong aria-hidden="true">13.</strong> Usage with Lightning</a></li><li class="chapter-item expanded "><a href="usage_itwinAI_logger.html"><strong aria-hidden="true">14.</strong> Usage with ItwinAI Logger</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -152,6 +153,21 @@ The available contexts are: </p>
 <li><code>VALIDATION</code>: adds the information to the validation context</li>
 <li><code>TESTING</code>: adds the information to the testing context</li>
 </ul>
+<div id="admonition-example" class="admonition admonish-example" role="note" aria-labelledby="admonition-example-title">
+<div class="admonition-title">
+<div id="admonition-example-title">
+<p>Example</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-example"></a>
+</div>
+<div>
+<p>New phases or contexts can be created and added, the provenance file will still be valid.</p>
+</div>
+</div>
+<pre><code class="language-python">class MyNewContext(Enum): 
+    PREPROCESSING = 3
+    INFERENCE = 4
+</code></pre>
 <h2 id="log-parameters"><a class="header" href="#log-parameters">Log Parameters</a></h2>
 <p>To specify arbitrary training parameters used during the execution of the experiment, the user can call the following function. </p>
 <pre><code class="language-python">prov4ml.log_param(
@@ -188,25 +204,32 @@ The <em>source</em> parameter is optional and can be used to specify the source 
 <p>To log artifacts, the user can call the following function.</p>
 <pre><code class="language-python">prov4ml.log_artifact(
     artifact_path : str, 
+    value : Any, 
     context: Context,
     step: Optional[int] = None, 
-    timestamp: Optional[int] = None
+    timestamp: Optional[int] = None,
+    log_copy_in_prov_directory : bool = True,
 )
 </code></pre>
 <div class="table-wrapper"><table><thead><tr><th style="text-align: left">Parameter</th><th style="text-align: left">Type</th><th style="text-align: left">Description</th></tr></thead><tbody>
 <tr><td style="text-align: left"><code>artifact_path</code></td><td style="text-align: left"><code>string</code></td><td style="text-align: left"><strong>Required</strong>. Path to the artifact</td></tr>
+<tr><td style="text-align: left"><code>value</code></td><td style="text-align: left"><code>Any</code></td><td style="text-align: left"><strong>Required</strong>. The artifact</td></tr>
 <tr><td style="text-align: left"><code>context</code></td><td style="text-align: left"><code>prov4ml.Context</code></td><td style="text-align: left"><strong>Required</strong>. Context of the artifact</td></tr>
 <tr><td style="text-align: left"><code>step</code></td><td style="text-align: left"><code>int</code></td><td style="text-align: left"><strong>Optional</strong>. Step of the artifact</td></tr>
 <tr><td style="text-align: left"><code>timestamp</code></td><td style="text-align: left"><code>int</code></td><td style="text-align: left"><strong>Optional</strong>. Timestamp of the artifact</td></tr>
+<tr><td style="text-align: left"><code>log_copy_in_prov_directory</code></td><td style="text-align: left"><code>bool</code></td><td style="text-align: left"><strong>Optional</strong>. Copies file in artifact directory</td></tr>
 </tbody></table>
 </div>
 <p>The function logs the artifact in the current experiment. The artifact can be a file or a directory. 
-All logged artifacts are saved in the artifacts directory of the current experiment, while the related information is saved in the PROV-JSON file, along with a reference to the file. </p>
+All logged artifacts are saved in the artifacts directory of the current experiment, while the related information is saved in the PROV-JSON file, along with a reference to the file. 
+The <em>value</em> parameter can be any artifact, a file, a path, a value. yProv4ML identifies the correct way to store this parameter in memoty and connect it to the provenance file. 
+If <em>log_copy_in_prov_directory</em> is <code>True</code>, the file at the specified value parameter is copied inside the artefacts directory.</p>
 <h2 id="log-models"><a class="header" href="#log-models">Log Models</a></h2>
 <pre><code class="language-python">prov4ml.log_model(
     model: Union[torch.nn.Module, Any], 
     model_name: str = &quot;default&quot;, 
     log_model_info: bool = True, 
+    log_model_layers : bool = False,
     log_as_artifact=True, 
 )
 </code></pre>
@@ -214,13 +237,16 @@ All logged artifacts are saved in the artifacts directory of the current experim
 <tr><td style="text-align: left"><code>model</code></td><td style="text-align: left"><code>Union[torch.nn.Module, Any]</code></td><td style="text-align: left"><strong>Required</strong>. The model to be logged</td></tr>
 <tr><td style="text-align: left"><code>model_name</code></td><td style="text-align: left"><code>string</code></td><td style="text-align: left"><strong>Optional</strong>. Name of the model</td></tr>
 <tr><td style="text-align: left"><code>log_model_info</code></td><td style="text-align: left"><code>bool</code></td><td style="text-align: left"><strong>Optional</strong>. Whether to log model information</td></tr>
+<tr><td style="text-align: left"><code>log_model_layers</code></td><td style="text-align: left"><code>bool</code></td><td style="text-align: left"><strong>Optional</strong>. Whether to log model layers</td></tr>
 <tr><td style="text-align: left"><code>log_as_artifact</code></td><td style="text-align: left"><code>bool</code></td><td style="text-align: left"><strong>Optional</strong>. Whether to log the model as an artifact</td></tr>
 </tbody></table>
 </div>
 <p>It sets the model for the current experiment. It can be called anywhere before the end of the experiment. 
 The same call also logs some model information, such as the number of parameters and the model architecture memory footprint. 
 The saving of these information can be toggled with the <code>log_model_info = False</code> parameter. 
-The model can be saved as an artifact by setting the <code>log_as_artifact = True</code> parameter, which will save its parameters in the artifacts directory and reference the file in the PROV-JSON file.</p>
+The model can be saved as an artifact by setting the <code>log_as_artifact = True</code> parameter, which will save its parameters in the artifacts directory and reference the file in the PROV-JSON file.
+The model layers details can be logged in an external .json file, which will be linked to the provenance file as an artefact. 
+The parameters saved for each layer depend on the type of the latter, but generally include input and output size, as well as dtype. </p>
 <pre><code class="language-python">prov4ml.save_model_version(
     model: Union[torch.nn.Module, Any], 
     model_name: str, 
@@ -238,7 +264,8 @@ The model can be saved as an artifact by setting the <code>log_as_artifact = Tru
 <tr><td style="text-align: left"><code>timestamp</code></td><td style="text-align: left"><code>Optional[int]</code></td><td style="text-align: left"><strong>Optional</strong>. The timestamp associated with the saved model.</td></tr>
 </tbody></table>
 </div>
-<p>This function saves the model's state dictionary to a specified directory and logs the saved model file as an artifact for provenance tracking. It ensures that the directory for saving the model exists, creates it if necessary, and uses the <code>torch.save</code> method to save the model. It then logs the saved model file using <code>log_artifact</code>, associating it with the given context and optional step number.</p>
+<p>This function saves the model's state dictionary to a specified directory and logs the saved model file as an artifact for provenance tracking. It ensures that the directory for saving the model exists, creates it if necessary, and uses the <code>torch.save</code> method to save the model. It then logs the saved model file using <code>log_artifact</code>, associating it with the given context and optional step number. 
+If <code>save_model_version</code> is called several times, yProv4ML creates an incremental id for each model variation, and saves all in a sub-directory. </p>
 <h2 id="log-datasets"><a class="header" href="#log-datasets">Log Datasets</a></h2>
 <p>yProv4ML offers helper functions to log information and stats on specific datasets.</p>
 <pre><code class="language-python">prov4ml.log_dataset(
@@ -251,7 +278,8 @@ The model can be saved as an artifact by setting the <code>log_as_artifact = Tru
 <tr><td style="text-align: left"><code>label</code></td><td style="text-align: left"><code>string</code></td><td style="text-align: left"><strong>Required</strong>. The label of the dataset</td></tr>
 </tbody></table>
 </div>
-<p>The function logs the dataset in the current experiment. The dataset can be a DataLoader, a Subset, or a Dataset class from pytorch.</p>
+<p>The function logs the dataset in the current experiment. The dataset can be a DataLoader, a Subset, or a Dataset class from pytorch.
+Parameters which are logged include batch size, number of workers, whether the dataset is shuffled, the number of batches and the number of total samples. </p>
 <p><a href="README.html">Home</a> | <a href="prov_graph.html">Prev</a> | <a href="prov_collection.html">Next</a></p>
 
                     </main>
@@ -283,6 +311,22 @@ The model can be saved as an artifact by setting the <code>log_as_artifact = Tru
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 

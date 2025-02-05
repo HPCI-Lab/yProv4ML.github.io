@@ -7,6 +7,17 @@ The available contexts are:
  - `VALIDATION`: adds the information to the validation context
  - `TESTING`: adds the information to the testing context
 
+```admonish example
+New phases or contexts can be created and added, the provenance file will still be valid. 
+```
+
+```python
+class MyNewContext(Enum): 
+    PREPROCESSING = 3
+    INFERENCE = 4
+```
+
+
 ## Log Parameters
 
 To specify arbitrary training parameters used during the execution of the experiment, the user can call the following function. 
@@ -56,21 +67,27 @@ To log artifacts, the user can call the following function.
 ```python
 prov4ml.log_artifact(
     artifact_path : str, 
+    value : Any, 
     context: Context,
     step: Optional[int] = None, 
-    timestamp: Optional[int] = None
+    timestamp: Optional[int] = None,
+    log_copy_in_prov_directory : bool = True,
 )
 ```
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
 | `artifact_path` | `string` | **Required**. Path to the artifact |
+| `value` | `Any` | **Required**. The artifact |
 | `context` | `prov4ml.Context` | **Required**. Context of the artifact |
 | `step` | `int` | **Optional**. Step of the artifact |
 | `timestamp` | `int` | **Optional**. Timestamp of the artifact |
+| `log_copy_in_prov_directory` | `bool` | **Optional**. Copies file in artifact directory |
 
 The function logs the artifact in the current experiment. The artifact can be a file or a directory. 
 All logged artifacts are saved in the artifacts directory of the current experiment, while the related information is saved in the PROV-JSON file, along with a reference to the file. 
+The *value* parameter can be any artifact, a file, a path, a value. yProv4ML identifies the correct way to store this parameter in memoty and connect it to the provenance file. 
+If *log_copy_in_prov_directory* is `True`, the file at the specified value parameter is copied inside the artefacts directory.  
 
 ## Log Models
 
@@ -79,6 +96,7 @@ prov4ml.log_model(
     model: Union[torch.nn.Module, Any], 
     model_name: str = "default", 
     log_model_info: bool = True, 
+    log_model_layers : bool = False,
     log_as_artifact=True, 
 )
 ```
@@ -88,12 +106,15 @@ prov4ml.log_model(
 | `model` | `Union[torch.nn.Module, Any]` | **Required**. The model to be logged |
 | `model_name` | `string` | **Optional**. Name of the model |
 | `log_model_info` | `bool` | **Optional**. Whether to log model information |
+| `log_model_layers` | `bool` | **Optional**. Whether to log model layers |
 | `log_as_artifact` | `bool` | **Optional**. Whether to log the model as an artifact |
 
 It sets the model for the current experiment. It can be called anywhere before the end of the experiment. 
 The same call also logs some model information, such as the number of parameters and the model architecture memory footprint. 
 The saving of these information can be toggled with the ```log_model_info = False``` parameter. 
 The model can be saved as an artifact by setting the ```log_as_artifact = True``` parameter, which will save its parameters in the artifacts directory and reference the file in the PROV-JSON file.
+The model layers details can be logged in an external .json file, which will be linked to the provenance file as an artefact. 
+The parameters saved for each layer depend on the type of the latter, but generally include input and output size, as well as dtype. 
 
 ```python
 prov4ml.save_model_version(
@@ -115,8 +136,8 @@ The save_model_version function saves the state of a PyTorch model and logs it a
 | `step`	| `Optional[int]` |	**Optional**. The step or epoch number associated with the saved model. |
 | `timestamp`	| `Optional[int]` |	**Optional**. The timestamp associated with the saved model. |
 
-This function saves the model's state dictionary to a specified directory and logs the saved model file as an artifact for provenance tracking. It ensures that the directory for saving the model exists, creates it if necessary, and uses the `torch.save` method to save the model. It then logs the saved model file using `log_artifact`, associating it with the given context and optional step number.
-
+This function saves the model's state dictionary to a specified directory and logs the saved model file as an artifact for provenance tracking. It ensures that the directory for saving the model exists, creates it if necessary, and uses the `torch.save` method to save the model. It then logs the saved model file using `log_artifact`, associating it with the given context and optional step number. 
+If ```save_model_version``` is called several times, yProv4ML creates an incremental id for each model variation, and saves all in a sub-directory. 
 
 ## Log Datasets
 
@@ -135,6 +156,7 @@ prov4ml.log_dataset(
 | `label` | `string` | **Required**. The label of the dataset |
 
 The function logs the dataset in the current experiment. The dataset can be a DataLoader, a Subset, or a Dataset class from pytorch.
+Parameters which are logged include batch size, number of workers, whether the dataset is shuffled, the number of batches and the number of total samples. 
 
 
 [Home](README.md) | [Prev](prov_graph.md) | [Next](prov_collection.md)

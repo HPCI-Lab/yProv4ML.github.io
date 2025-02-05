@@ -10,6 +10,7 @@
 - [System Metrics](./system.md)
 - [Time Metrics](./time.md)
 - [Registering Metrics](./registering_metrics.md)
+- [Reproducibility](./reproducibility.md)
 - [Usage with PyTorch](./usage_pytorch.md)
 - [Usage with Lightning](./usage_lightning.md)
 - [Usage with ItwinAI Logger](./usage_itwinAI_logger.md)
