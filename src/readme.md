@@ -8,19 +8,19 @@ It allows users to create provenance graphs from the logged information, and sav
 
 ## Data Model
 
-![Data Model](../assets/prov4ml.datamodel.png)
+![Data Model](./assets/prov4ml.datamodel.png)
 
 ## Example
 
-![Example](../assets/example.svg)
+![Example](./assets/example.svg)
 
 The image shown above has been generated from the [example](./examples/mlflow_lightning.py) program provided in the ```example``` directory.
 
 ## Metrics Visualization
 
-![Loss and GPU Usage](../assets/System_Metrics.png)
+![Loss and GPU Usage](./assets/System_Metrics.png)
 
-![Emission Rate](../assets/Emission_Rate.png) 
+![Emission Rate](./assets/Emission_Rate.png) 
 
 ## Experiments and Runs
 

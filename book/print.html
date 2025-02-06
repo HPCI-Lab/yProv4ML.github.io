@@ -151,13 +151,13 @@
 <p>This library is part of the yProv suite, and provides a unified interface for logging and tracking provenance information in machine learning experiments, both on distributed as well as large scale experiments. </p>
 <p>It allows users to create provenance graphs from the logged information, and save all metrics and parameters to json format.</p>
 <h2 id="data-model"><a class="header" href="#data-model">Data Model</a></h2>
-<p><img src="../assets/prov4ml.datamodel.png" alt="Data Model" /></p>
+<p><img src="./assets/prov4ml.datamodel.png" alt="Data Model" /></p>
 <h2 id="example"><a class="header" href="#example">Example</a></h2>
-<p><img src="../assets/example.svg" alt="Example" /></p>
+<p><img src="./assets/example.svg" alt="Example" /></p>
 <p>The image shown above has been generated from the <a href="./examples/mlflow_lightning.py">example</a> program provided in the <code>example</code> directory.</p>
 <h2 id="metrics-visualization"><a class="header" href="#metrics-visualization">Metrics Visualization</a></h2>
-<p><img src="../assets/System_Metrics.png" alt="Loss and GPU Usage" /></p>
-<p><img src="../assets/Emission_Rate.png" alt="Emission Rate" /> </p>
+<p><img src="./assets/System_Metrics.png" alt="Loss and GPU Usage" /></p>
+<p><img src="./assets/Emission_Rate.png" alt="Emission Rate" /> </p>
 <h2 id="experiments-and-runs"><a class="header" href="#experiments-and-runs">Experiments and Runs</a></h2>
 <p>An experiment is a collection of runs. Each run is a single execution of a machine learning model. 
 By changing the <code>experiment_name</code> parameter in the <code>start_run</code> function, the user can create a new experiment. 
@@ -169,7 +169,7 @@ All artifacts and metrics logged during the execution of the experiment will be 
 <li><a href="https://github.com/lucadavii">Luca Davi</a></li>
 <li><a href="https://github.com/sandrofioretn">Sandro Luigi Fiore</a></li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="installation"><a class="header" href="#installation">Installation</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="installation-"><a class="header" href="#installation-">Installation 👷‍♂️</a></h1>
 <p>Install from the repository:</p>
 <pre><code class="language-bash">git clone https://github.com/HPCI-Lab/yProvML.git
 cd yProvML
@@ -231,16 +231,8 @@ pip install .
 </tbody></table>
 </div>
 <p>This call allows the library to save the provenance graph in the specified directory. </p>
-<div id="admonition-warning" class="admonition admonish-warning" role="note" aria-labelledby="admonition-warning-title">
-<div class="admonition-title">
-<div id="admonition-warning-title">
-<p>Warning</p>
-</div>
-<a class="admonition-anchor-link" href="setup.html#admonition-warning"></a>
-</div>
-<div>
-<p>If <code>create_svg</code> is True then <code>create_graph</code> has to be necessairly set to True, as the creation of the former requires the latter.</p>
-</div>
+<div style="background-color: #ffcc00; color: #333; padding: 15px; border-left: 5px solid #cc3300; font-weight: bold; margin: 20px; border-radius: 5px;">
+    ⚠️ If create_svg is True then create_graph has to be necessairly set to True, as the creation of the former requires the latter. 
 </div>
 <p><a href="README.html">Home</a> | <a href="installation.html">Prev</a> | <a href="prov_graph.html">Next</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="provenance-graph-creation-graphviz"><a class="header" href="#provenance-graph-creation-graphviz">Provenance Graph Creation (GraphViz)</a></h2>

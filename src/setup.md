@@ -43,8 +43,9 @@ prov4ml.end_run(
 
 This call allows the library to save the provenance graph in the specified directory. 
 
-```admonish warning
-If `create_svg` is True then `create_graph` has to be necessairly set to True, as the creation of the former requires the latter. 
-```
+<div style="background-color: #ffcc00; color: #333; padding: 15px; border-left: 5px solid #cc3300; font-weight: bold; margin: 20px; border-radius: 5px;">
+    ⚠️ If create_svg is True then create_graph has to be necessairly set to True, as the creation of the former requires the latter. 
+</div>
+
 
 [Home](README.md) | [Prev](installation.md) | [Next](prov_graph.md)

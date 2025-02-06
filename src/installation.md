@@ -1,5 +1,5 @@
 
-# Installation
+# Installation 👷‍♂️
 
 Install from the repository:
 
