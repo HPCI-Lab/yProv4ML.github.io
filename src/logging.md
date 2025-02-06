@@ -7,15 +7,20 @@ The available contexts are:
  - `VALIDATION`: adds the information to the validation context
  - `TESTING`: adds the information to the testing context
 
-```admonish example
-New phases or contexts can be created and added, the provenance file will still be valid. 
-```
+
+<div style="display: flex; align-items: center; margin: 20px 0;">
+    <hr style="flex-grow: 0.05; border: 2px solid #009B77; margin: 0;">
+    <span style="background: white; padding: 0 10px; font-weight: bold; color: #009B77;">Example:</span>
+    <hr style="flex-grow: 1; border: 2px solid #009B77; margin: 0;">
+</div>
 
 ```python
 class MyNewContext(Enum): 
     PREPROCESSING = 3
     INFERENCE = 4
 ```
+
+<hr style="border: 2px solid #009B77; margin: 20px 0;">
 
 
 ## Log Parameters
@@ -158,5 +163,8 @@ prov4ml.log_dataset(
 The function logs the dataset in the current experiment. The dataset can be a DataLoader, a Subset, or a Dataset class from pytorch.
 Parameters which are logged include batch size, number of workers, whether the dataset is shuffled, the number of batches and the number of total samples. 
 
-
-[Home](README.md) | [Prev](prov_graph.md) | [Next](prov_collection.md)
+<div style="display: flex; justify-content: center; gap: 10px; margin-top: 20px;">
+    <a href="prov_graph.md" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">← Prev</a>
+    <a href="." style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">🏠 Home</a>
+    <a href="prov_collection.md" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">Next →</a>
+</div>

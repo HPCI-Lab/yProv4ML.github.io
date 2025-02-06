@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Usage with ItwinAI Logger - yProv4ML Documentation</title>
+        <title>Viewing Data - yProv4ML Documentation</title>
 
 
         <!-- Custom HTML head -->
@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="setup.html"><strong aria-hidden="true">3.</strong> Setup</a></li><li class="chapter-item expanded "><a href="prov_graph.html"><strong aria-hidden="true">4.</strong> Provenance Graph</a></li><li class="chapter-item expanded "><a href="logging.html"><strong aria-hidden="true">5.</strong> Logging</a></li><li class="chapter-item expanded "><a href="prov_collection.html"><strong aria-hidden="true">6.</strong> Prov Collection</a></li><li class="chapter-item expanded "><a href="metrics.html"><strong aria-hidden="true">7.</strong> Metrics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="carbon.html"><strong aria-hidden="true">7.1.</strong> Carbon Metrics</a></li><li class="chapter-item expanded "><a href="system.html"><strong aria-hidden="true">7.2.</strong> System Metrics</a></li><li class="chapter-item expanded "><a href="time.html"><strong aria-hidden="true">7.3.</strong> Time Metrics</a></li><li class="chapter-item expanded "><a href="registering_metrics.html"><strong aria-hidden="true">7.4.</strong> Registering Metrics</a></li></ol></li><li class="chapter-item expanded "><a href="reproducibility.html"><strong aria-hidden="true">8.</strong> Reproducibility</a></li><li class="chapter-item expanded "><a href="prov_viewer.html"><strong aria-hidden="true">9.</strong> Provenance Viewer</a></li><li class="chapter-item expanded "><a href="prov_getters.html"><strong aria-hidden="true">10.</strong> Get Data from Provenance Files</a></li><li class="chapter-item expanded "><a href="examples.html"><strong aria-hidden="true">11.</strong> Examples</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="usage_pytorch.html"><strong aria-hidden="true">11.1.</strong> Usage with PyTorch</a></li><li class="chapter-item expanded "><a href="usage_lightning.html"><strong aria-hidden="true">11.2.</strong> Usage with Lightning</a></li><li class="chapter-item expanded "><a href="usage_itwinAI_logger.html" class="active"><strong aria-hidden="true">11.3.</strong> Usage with ItwinAI Logger</a></li><li class="chapter-item expanded "><a href="prov_getters_example.html"><strong aria-hidden="true">11.4.</strong> Viewing Data</a></li><li class="chapter-item expanded "><a href="reproducible_example.html"><strong aria-hidden="true">11.5.</strong> Reproducible Example</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="setup.html"><strong aria-hidden="true">3.</strong> Setup</a></li><li class="chapter-item expanded "><a href="prov_graph.html"><strong aria-hidden="true">4.</strong> Provenance Graph</a></li><li class="chapter-item expanded "><a href="logging.html"><strong aria-hidden="true">5.</strong> Logging</a></li><li class="chapter-item expanded "><a href="prov_collection.html"><strong aria-hidden="true">6.</strong> Prov Collection</a></li><li class="chapter-item expanded "><a href="metrics.html"><strong aria-hidden="true">7.</strong> Metrics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="carbon.html"><strong aria-hidden="true">7.1.</strong> Carbon Metrics</a></li><li class="chapter-item expanded "><a href="system.html"><strong aria-hidden="true">7.2.</strong> System Metrics</a></li><li class="chapter-item expanded "><a href="time.html"><strong aria-hidden="true">7.3.</strong> Time Metrics</a></li><li class="chapter-item expanded "><a href="registering_metrics.html"><strong aria-hidden="true">7.4.</strong> Registering Metrics</a></li></ol></li><li class="chapter-item expanded "><a href="reproducibility.html"><strong aria-hidden="true">8.</strong> Reproducibility</a></li><li class="chapter-item expanded "><a href="prov_viewer.html"><strong aria-hidden="true">9.</strong> Provenance Viewer</a></li><li class="chapter-item expanded "><a href="prov_getters.html"><strong aria-hidden="true">10.</strong> Get Data from Provenance Files</a></li><li class="chapter-item expanded "><a href="examples.html"><strong aria-hidden="true">11.</strong> Examples</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="usage_pytorch.html"><strong aria-hidden="true">11.1.</strong> Usage with PyTorch</a></li><li class="chapter-item expanded "><a href="usage_lightning.html"><strong aria-hidden="true">11.2.</strong> Usage with Lightning</a></li><li class="chapter-item expanded "><a href="usage_itwinAI_logger.html"><strong aria-hidden="true">11.3.</strong> Usage with ItwinAI Logger</a></li><li class="chapter-item expanded "><a href="prov_getters_example.html" class="active"><strong aria-hidden="true">11.4.</strong> Viewing Data</a></li><li class="chapter-item expanded "><a href="reproducible_example.html"><strong aria-hidden="true">11.5.</strong> Reproducible Example</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -145,21 +145,46 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="usage-with-itwinai-logger"><a class="header" href="#usage-with-itwinai-logger">Usage with itwinAI Logger</a></h1>
+                        <h1 id="viewing-data"><a class="header" href="#viewing-data">Viewing Data</a></h1>
+<div style="display: flex; align-items: center; margin: 20px 0;">
+    <hr style="flex-grow: 0.05; border: 2px solid #009B77; margin: 0;">
+    <span style="background: white; padding: 0 10px; font-weight: bold; color: #009B77;">Example:</span>
+    <hr style="flex-grow: 1; border: 2px solid #009B77; margin: 0;">
+</div>
+<pre><code class="language-python">import pandas as pd
+import json
+import matplotlib.pyplot as plt
+
+# Import the directives from prov4ml
+import prov4ml.utils.prov_getters as pg
+
+data = json.load(open(file_path))
+# Get only metrics which have been collected during training phase
+metric_keys = pg.get_metrics(data, keyword=&quot;TRAINING&quot;)
+print(metric_keys)
+
+# Creating mean values dictionary
+metric = pg.get_metric(data, metric_keys[0])
+
+plt.plot(metric[&quot;value&quot;])
+plt.show()
+</code></pre>
+<hr style="border: 2px solid #009B77; margin: 20px 0;">
+<p><img src="./assets/prov_getters_example.png" alt="Prov_Getter_example" /></p>
 <div style="display: flex; justify-content: center; gap: 10px; margin-top: 20px;">
-    <a href="usage_lightning.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">← Prev</a>
+    <a href="usage_itwinAI_logger.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">← Prev</a>
     <a href="." style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">🏠 Home</a>
-    <a href="prov_getters_example.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">Next →</a>
+    <a href="reproducible_example.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">Next →</a>
 </div>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="usage_lightning.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="usage_itwinAI_logger.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="prov_getters_example.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="reproducible_example.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -169,11 +194,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="usage_lightning.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="usage_itwinAI_logger.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="prov_getters_example.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="reproducible_example.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

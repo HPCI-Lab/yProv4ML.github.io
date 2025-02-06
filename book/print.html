@@ -85,7 +85,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="setup.html"><strong aria-hidden="true">3.</strong> Setup</a></li><li class="chapter-item expanded "><a href="prov_graph.html"><strong aria-hidden="true">4.</strong> Provenance Graph</a></li><li class="chapter-item expanded "><a href="logging.html"><strong aria-hidden="true">5.</strong> Logging</a></li><li class="chapter-item expanded "><a href="prov_collection.html"><strong aria-hidden="true">6.</strong> Prov Collection</a></li><li class="chapter-item expanded "><a href="carbon.html"><strong aria-hidden="true">7.</strong> Carbon Metrics</a></li><li class="chapter-item expanded "><a href="system.html"><strong aria-hidden="true">8.</strong> System Metrics</a></li><li class="chapter-item expanded "><a href="time.html"><strong aria-hidden="true">9.</strong> Time Metrics</a></li><li class="chapter-item expanded "><a href="registering_metrics.html"><strong aria-hidden="true">10.</strong> Registering Metrics</a></li><li class="chapter-item expanded "><a href="reproducibility.html"><strong aria-hidden="true">11.</strong> Reproducibility</a></li><li class="chapter-item expanded "><a href="usage_pytorch.html"><strong aria-hidden="true">12.</strong> Usage with PyTorch</a></li><li class="chapter-item expanded "><a href="usage_lightning.html"><strong aria-hidden="true">13.</strong> Usage with Lightning</a></li><li class="chapter-item expanded "><a href="usage_itwinAI_logger.html"><strong aria-hidden="true">14.</strong> Usage with ItwinAI Logger</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="setup.html"><strong aria-hidden="true">3.</strong> Setup</a></li><li class="chapter-item expanded "><a href="prov_graph.html"><strong aria-hidden="true">4.</strong> Provenance Graph</a></li><li class="chapter-item expanded "><a href="logging.html"><strong aria-hidden="true">5.</strong> Logging</a></li><li class="chapter-item expanded "><a href="prov_collection.html"><strong aria-hidden="true">6.</strong> Prov Collection</a></li><li class="chapter-item expanded "><a href="metrics.html"><strong aria-hidden="true">7.</strong> Metrics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="carbon.html"><strong aria-hidden="true">7.1.</strong> Carbon Metrics</a></li><li class="chapter-item expanded "><a href="system.html"><strong aria-hidden="true">7.2.</strong> System Metrics</a></li><li class="chapter-item expanded "><a href="time.html"><strong aria-hidden="true">7.3.</strong> Time Metrics</a></li><li class="chapter-item expanded "><a href="registering_metrics.html"><strong aria-hidden="true">7.4.</strong> Registering Metrics</a></li></ol></li><li class="chapter-item expanded "><a href="reproducibility.html"><strong aria-hidden="true">8.</strong> Reproducibility</a></li><li class="chapter-item expanded "><a href="prov_viewer.html"><strong aria-hidden="true">9.</strong> Provenance Viewer</a></li><li class="chapter-item expanded "><a href="prov_getters.html"><strong aria-hidden="true">10.</strong> Get Data from Provenance Files</a></li><li class="chapter-item expanded "><a href="examples.html"><strong aria-hidden="true">11.</strong> Examples</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="usage_pytorch.html"><strong aria-hidden="true">11.1.</strong> Usage with PyTorch</a></li><li class="chapter-item expanded "><a href="usage_lightning.html"><strong aria-hidden="true">11.2.</strong> Usage with Lightning</a></li><li class="chapter-item expanded "><a href="usage_itwinAI_logger.html"><strong aria-hidden="true">11.3.</strong> Usage with ItwinAI Logger</a></li><li class="chapter-item expanded "><a href="prov_getters_example.html"><strong aria-hidden="true">11.4.</strong> Viewing Data</a></li><li class="chapter-item expanded "><a href="reproducible_example.html"><strong aria-hidden="true">11.5.</strong> Reproducible Example</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -169,6 +169,11 @@ All artifacts and metrics logged during the execution of the experiment will be 
 <li><a href="https://github.com/lucadavii">Luca Davi</a></li>
 <li><a href="https://github.com/sandrofioretn">Sandro Luigi Fiore</a></li>
 </ul>
+<div style="display: flex; justify-content: center; gap: 10px; margin-top: 20px;">
+    <a href="." style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">← Prev</a>
+    <a href="." style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">🏠 Home</a>
+    <a href="installation.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">Next →</a>
+</div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="installation-"><a class="header" href="#installation-">Installation 👷‍♂️</a></h1>
 <p>Install from the repository:</p>
 <pre><code class="language-bash">git clone https://github.com/HPCI-Lab/yProvML.git
@@ -195,8 +200,11 @@ git switch development # or any other branch
 pip install -r requirements.txt
 pip install .
 </code></pre>
-<p><a href="README.html">Home</a> | <a href="setup.html">Next</a></p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="setup"><a class="header" href="#setup">Setup</a></h1>
+<div style="display: flex; justify-content: center; gap: 10px; margin-top: 20px;">
+    <a href="." style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">← Prev</a>
+    <a href="." style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">🏠 Home</a>
+    <a href="setup.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">Next →</a>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="setup"><a class="header" href="#setup">Setup</a></h1>
 <p>Before using the library, the user must set up the MLFlow execution, as well as library specific configurations: </p>
 <pre><code class="language-python">prov4ml.start_run(
     prov_user_namespace: str,
@@ -231,11 +239,15 @@ pip install .
 </tbody></table>
 </div>
 <p>This call allows the library to save the provenance graph in the specified directory. </p>
-<div style="background-color: #ffcc00; color: #333; padding: 15px; border-left: 5px solid #cc3300; font-weight: bold; margin: 20px; border-radius: 5px;">
-    ⚠️ If create_svg is True then create_graph has to be necessairly set to True, as the creation of the former requires the latter. 
+<div style="display: flex; align-items: center; background-color: #ffcc00; color: #333; border: 5px solid #ffcc00; font-weight: bold; border-radius: 5px; position: relative;">
+    <span style="position: absolute; left: 10px; font-size: 20px;">⚠</span>
+    <span style="margin-left: 55px; padding: 5px; background-color: white; border-radius: 5px; width:100%">If create_svg is True then create_graph has to be necessairly set to True, as the creation of the former requires the latter. </span>
 </div>
-<p><a href="README.html">Home</a> | <a href="installation.html">Prev</a> | <a href="prov_graph.html">Next</a></p>
-<div style="break-before: page; page-break-before: always;"></div><h2 id="provenance-graph-creation-graphviz"><a class="header" href="#provenance-graph-creation-graphviz">Provenance Graph Creation (GraphViz)</a></h2>
+<div style="display: flex; justify-content: center; gap: 10px; margin-top: 20px;">
+    <a href="installation.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">← Prev</a>
+    <a href="." style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">🏠 Home</a>
+    <a href="prov_graph.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">Next →</a>
+</div><div style="break-before: page; page-break-before: always;"></div><h2 id="provenance-graph-creation-graphviz"><a class="header" href="#provenance-graph-creation-graphviz">Provenance Graph Creation (GraphViz)</a></h2>
 <p>The standard method to generate the .dot file containing the provenance graph is to set the <code>create_graph</code> parameter to <code>True</code>. </p>
 <p>If the user necessitates to turn a PROV-JSON created with yProv4ML into a .dot file, the following code command can be used: </p>
 <pre><code class="language-bash">python -m prov4ml.prov2dot --prov_json prov.json --output prov_graph.dot
@@ -249,8 +261,11 @@ In this case both <code>create_graph</code> and <code>create_svg</code>have to b
 <p>Or alternatively, using directly the Graphviz suite: </p>
 <pre><code class="language-bash">dot -Tsvg -O prov_graph.dot
 </code></pre>
-<p><a href="README.html">Home</a> | <a href="setup.html">Prev</a> | <a href="logging.html">Next</a></p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="general-logging"><a class="header" href="#general-logging">General Logging</a></h1>
+<div style="display: flex; justify-content: center; gap: 10px; margin-top: 20px;">
+    <a href="setup.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">← Prev</a>
+    <a href="." style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">🏠 Home</a>
+    <a href="logging.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">Next →</a>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="general-logging"><a class="header" href="#general-logging">General Logging</a></h1>
 <p>When logging parameters and metrics, the user must specify the context of the information. 
 The available contexts are: </p>
 <ul>
@@ -258,21 +273,16 @@ The available contexts are: </p>
 <li><code>VALIDATION</code>: adds the information to the validation context</li>
 <li><code>TESTING</code>: adds the information to the testing context</li>
 </ul>
-<div id="admonition-example" class="admonition admonish-example" role="note" aria-labelledby="admonition-example-title">
-<div class="admonition-title">
-<div id="admonition-example-title">
-<p>Example</p>
-</div>
-<a class="admonition-anchor-link" href="logging.html#admonition-example"></a>
-</div>
-<div>
-<p>New phases or contexts can be created and added, the provenance file will still be valid.</p>
-</div>
+<div style="display: flex; align-items: center; margin: 20px 0;">
+    <hr style="flex-grow: 0.05; border: 2px solid #009B77; margin: 0;">
+    <span style="background: white; padding: 0 10px; font-weight: bold; color: #009B77;">Example:</span>
+    <hr style="flex-grow: 1; border: 2px solid #009B77; margin: 0;">
 </div>
 <pre><code class="language-python">class MyNewContext(Enum): 
     PREPROCESSING = 3
     INFERENCE = 4
 </code></pre>
+<hr style="border: 2px solid #009B77; margin: 20px 0;">
 <h2 id="log-parameters"><a class="header" href="#log-parameters">Log Parameters</a></h2>
 <p>To specify arbitrary training parameters used during the execution of the experiment, the user can call the following function. </p>
 <pre><code class="language-python">prov4ml.log_param(
@@ -385,37 +395,46 @@ If <code>save_model_version</code> is called several times, yProv4ML creates an 
 </div>
 <p>The function logs the dataset in the current experiment. The dataset can be a DataLoader, a Subset, or a Dataset class from pytorch.
 Parameters which are logged include batch size, number of workers, whether the dataset is shuffled, the number of batches and the number of total samples. </p>
-<p><a href="README.html">Home</a> | <a href="prov_graph.html">Prev</a> | <a href="prov_collection.html">Next</a></p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="provenance-collection-creation"><a class="header" href="#provenance-collection-creation">Provenance Collection Creation</a></h1>
-<div id="admonition-danger" class="admonition admonish-danger" role="note" aria-labelledby="admonition-danger-title">
-<div class="admonition-title">
-<div id="admonition-danger-title">
-<p>Danger</p>
-</div>
-<a class="admonition-anchor-link" href="prov_collection.html#admonition-danger"></a>
-</div>
-<div>
-<p>This feature is temporarily removed</p>
-</div>
+<div style="display: flex; justify-content: center; gap: 10px; margin-top: 20px;">
+    <a href="prov_graph.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">← Prev</a>
+    <a href="." style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">🏠 Home</a>
+    <a href="prov_collection.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">Next →</a>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="provenance-collection-creation"><a class="header" href="#provenance-collection-creation">Provenance Collection Creation</a></h1>
+<div style="display: flex; align-items: center; background-color: #cc3300; color: #333; border: 5px solid #cc3300; font-weight: bold; border-radius: 5px; position: relative;">
+    <span style="position: absolute; left: 10px; font-size: 20px;">‼</span>
+    <span style="margin-left: 35px; padding: 5px; background-color: white; border-radius: 5px; width: 100%">This feature is temporarily removed</span>
 </div>
 <p>The provenance collection functionality can be used to create a summary file linking all PROV-JSON files generated during a run. These files come from distributed execution, where each process generates its own log file, and the user may want to create a single file containing all the information.</p>
 <p>The collection can be created with the following command: </p>
 <pre><code class="language-bash">python -m prov4ml.prov_collection --experiment_path experiment_path --output_dir output_dir
 </code></pre>
 <p>Where <code>experiment_path</code> is the path to the experiment directory containing all the PROV-JSON files, and <code>output_dir</code> is the directory where the collection file will be saved. </p>
-<p><a href="README.html">Home</a> | <a href="prov_collection.html">Prev</a> | <a href="carbon.html">Next</a></p>
+<div style="display: flex; justify-content: center; gap: 10px; margin-top: 20px;">
+    <a href="logging.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">← Prev</a>
+    <a href="." style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">🏠 Home</a>
+    <a href="metrics.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">Next →</a>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="metrics-"><a class="header" href="#metrics-">Metrics 📊</a></h1>
+<p>This section covers the different types of metrics which can be collected using yProv4ml. These metrics provide insights into efficiency, resource usage, and overall effectiveness. Below is an overview of the key metric categories:</p>
+<ul>
+<li><a href="./carbon.html">Carbon Metrics</a>: Focuses on tracking and analyzing carbon emissions and HW impact.</li>
+<li><a href="./system.html">System Metrics</a>: Covers performance-related metrics such as CPU usage, memory consumption, and GPU stats.</li>
+<li><a href="./time.html">Time Metrics</a>: Offers directives for time-based measurements.</li>
+<li><a href="./registering_metrics.html">Registering Metrics</a>: Offers the ability to pre-process data &quot;in-situ&quot;.</li>
+</ul>
+<p>Each subsection provides detailed explanations and methodologies for tracking and interpreting these metrics.</p>
+<div style="display: flex; justify-content: center; gap: 10px; margin-top: 20px;">
+    <a href="prov_collection.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">← Prev</a>
+    <a href="." style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">🏠 Home</a>
+    <a href="carbon.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">Next →</a>
+</div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="carbon-metrics"><a class="header" href="#carbon-metrics">Carbon Metrics</a></h1>
-<div id="admonition-warning" class="admonition admonish-warning" role="note" aria-labelledby="admonition-warning-title">
-<div class="admonition-title">
-<div id="admonition-warning-title">
-<p>Warning</p>
-</div>
-<a class="admonition-anchor-link" href="carbon.html#admonition-warning"></a>
-</div>
-<div>
-<p>On some architectures, for example MacOS, the use of codecarbon will require sudo permissions. 
-If this feature is not necessary, it can be disabled when starting the new run.</p>
-</div>
+<div style="display: flex; align-items: center; background-color: #ffcc00; color: #333; border: 5px solid #ffcc00; font-weight: bold; border-radius: 5px; position: relative;">
+    <span style="position: absolute; left: 10px; font-size: 20px;">⚠</span>
+    <span style="margin-left: 55px; padding: 5px; background-color: white; border-radius: 5px; width:100%">
+    On some architectures, for example MacOS, the use of codecarbon will require sudo permissions. 
+    If this feature is not necessary, it can be disabled when starting the new run. 
+    </span>
 </div>
 <p>The prov4ml.log_carbon_metrics function logs carbon-related system metrics during machine learning experiments. 
 The information logged is related to the time between the last call to the function and the current call.</p>
@@ -463,9 +482,13 @@ The information logged is related to the time between the last call to the funct
 <li><strong>Startup time</strong>: The system is starting up, so the power usage is high at the beginning.</li>
 </ul>
 <p>After plotting the metrics saved with codecarbon, we can see that the emissions rate decreases over time. </p>
-<p><img src="../assets/codecarbon_metrics.png" alt="Emissions Rate" /></p>
+<p><img src="./assets/codecarbon_metrics.png" alt="Emissions Rate" /></p>
 <p>This shows that energy is mostly constant over time, while the emissions rate decreases. This is due to the ratio between energy and time, which is decreasing over time.</p>
-<p><a href="README.html">Home</a> | <a href="carbon.html">Prev</a> | <a href="system.html">Next</a></p>
+<div style="display: flex; justify-content: center; gap: 10px; margin-top: 20px;">
+    <a href="metrics.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">← Prev</a>
+    <a href="." style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">🏠 Home</a>
+    <a href="system.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">Next →</a>
+</div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="system-metrics"><a class="header" href="#system-metrics">System Metrics</a></h1>
 <p>The prov4ml.log_system_metrics function logs critical system performance metrics during machine learning experiments.
 The information logged is related to the time between the last call to the function and the current call.</p>
@@ -524,9 +547,11 @@ The information logged is related to the time between the last call to the funct
 <tr><td style="text-align: left"><code>context</code></td><td style="text-align: left"><code>prov4ml.Context</code></td><td style="text-align: left"><strong>Required</strong>. Context of the metric</td></tr>
 <tr><td style="text-align: left"><code>step</code></td><td style="text-align: left"><code>int</code></td><td style="text-align: left"><strong>Optional</strong>. Step of the metric</td></tr>
 </tbody></table>
-</div>
-<p><a href="README.html">Home</a> | <a href="carbon.html">Prev</a> | <a href="time.html">Next</a></p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="execution-time"><a class="header" href="#execution-time">Execution Time</a></h1>
+</div><div style="display: flex; justify-content: center; gap: 10px; margin-top: 20px;">
+    <a href="carbon.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">← Prev</a>
+    <a href="." style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">🏠 Home</a>
+    <a href="time.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">Next →</a>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="execution-time"><a class="header" href="#execution-time">Execution Time</a></h1>
 <pre><code class="language-python">prov4ml.log_current_execution_time(
     label: str, 
     context: Context, 
@@ -539,17 +564,26 @@ The information logged is related to the time between the last call to the funct
 <tr><td style="text-align: left"><code>step</code></td><td style="text-align: left"><code>int</code></td><td style="text-align: left"><strong>Optional</strong>. Step of the metric</td></tr>
 </tbody></table>
 </div>
-<p>The <em>log_current_execution_time</em> function logs the current execution time of the code portion specified by the label.</p>
-<pre><code class="language-python">prov4ml.log_execution_start_time()
-</code></pre>
-<p>The <em>log_execution_start_time</em> function logs the start time of the current execution. 
+<p>The <code>log_current_execution_time</code> function logs the current execution time of the code portion specified by the label.
+The <code>log_execution_start_time</code> function logs the start time of the current execution. 
 It is automatically called at the beginning of the experiment.</p>
-<pre><code class="language-python">prov4ml.log_execution_end_time()
+<div style="display: flex; align-items: center; margin: 20px 0;">
+    <hr style="flex-grow: 0.05; border: 2px solid #009B77; margin: 0;">
+    <span style="background: white; padding: 0 10px; font-weight: bold; color: #009B77;">Example:</span>
+    <hr style="flex-grow: 1; border: 2px solid #009B77; margin: 0;">
+</div>
+<pre><code class="language-python">prov4ml.log_execution_start_time()
+# run training process or other very important tasks...
+prov4ml.log_execution_end_time()
 </code></pre>
+<hr style="border: 2px solid #009B77; margin: 20px 0;">
 <p>The <em>log_execution_end_time</em> function logs the end time of the current execution.
 It is automatically called at the end of the experiment.</p>
-<p><a href="README.html">Home</a> | <a href="system.html">Prev</a> | <a href="registering_metrics.html">Next</a></p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="register-metrics-for-custom-operations"><a class="header" href="#register-metrics-for-custom-operations">Register Metrics for custom Operations</a></h1>
+<div style="display: flex; justify-content: center; gap: 10px; margin-top: 20px;">
+    <a href="system.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">← Prev</a>
+    <a href="." style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">🏠 Home</a>
+    <a href="registering_metrics.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">Next →</a>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="register-metrics-for-custom-operations"><a class="header" href="#register-metrics-for-custom-operations">Register Metrics for custom Operations</a></h1>
 <p>After collection of a specific metric, it's very often the case that a user may want to aggregate that information by applying functions such as mean, standard deviation, or min/max. </p>
 <p>yProv4ML allows to register a specific metric to be aggregated, using the function: </p>
 <pre><code class="language-python">prov4ml.register_final_metric(
@@ -561,46 +595,154 @@ It is automatically called at the end of the experiment.</p>
 <p>where <code>fold_operation</code> indicates the function to be applied to the data. </p>
 <p>Several FoldOperations are already defined, such as MAX, MIN, ADD and SUBRACT. 
 In any case the user is always able to define its own custom function, by either defining one with signature: </p>
+<div style="display: flex; align-items: center; margin: 20px 0;">
+    <hr style="flex-grow: 0.05; border: 2px solid #009B77; margin: 0;">
+    <span style="background: white; padding: 0 10px; font-weight: bold; color: #009B77;">Example:</span>
+    <hr style="flex-grow: 1; border: 2px solid #009B77; margin: 0;">
+</div>
 <pre><code class="language-python">def custom_foldOperation(x, y): 
     return x // y
 </code></pre>
+<hr style="border: 2px solid #009B77; margin: 20px 0;">
 <p>Or by passing a lambda function: </p>
+<div style="display: flex; align-items: center; margin: 20px 0;">
+    <hr style="flex-grow: 0.05; border: 2px solid #009B77; margin: 0;">
+    <span style="background: white; padding: 0 10px; font-weight: bold; color: #009B77;">Example:</span>
+    <hr style="flex-grow: 1; border: 2px solid #009B77; margin: 0;">
+</div>
 <pre><code class="language-python">prov4ml.register_final_metric(&quot;my_metric&quot;, 0, lambda x, y: x // y) 
 </code></pre>
+<hr style="border: 2px solid #009B77; margin: 20px 0;">
 <p>The output of the aggregated metric is saved in the PROV-JSON file, as an attribute of the current execution. </p>
-<p><a href="README.html">Home</a> | <a href="time.html">Prev</a> | <a href="reproducibility.html">Next</a></p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="reproducing-experiments-using-provenance-files"><a class="header" href="#reproducing-experiments-using-provenance-files">Reproducing Experiments using Provenance Files</a></h1>
+<div style="display: flex; justify-content: center; gap: 10px; margin-top: 20px;">
+    <a href="time.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">← Prev</a>
+    <a href="." style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">🏠 Home</a>
+    <a href="reproducibility.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">Next →</a>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="reproducing-experiments-using-provenance-files"><a class="header" href="#reproducing-experiments-using-provenance-files">Reproducing Experiments using Provenance Files</a></h1>
 <p>With workflow streamlined by yProv4ML, it is trivial to guarantee reproducibility of experiments even just sharing a single provenance file. 
 To guarantee the necessary amount of information are present in the prov.json file however, some calls to the library have to be executed. </p>
-<pre><code class="language-python">log_execution_command(cmd : str)
+<pre><code class="language-python">def log_execution_command(cmd : str): ...
 </code></pre>
 <p>Simply logs the execution command for it to be retrieved by the reproduction script later. This is often a call to python3</p>
-<pre><code class="language-python">log_source_code(path: str = None)
+<pre><code class="language-python">def log_source_code(path: Optional[str] = None): ...
 </code></pre>
 <p>Logs as an artifact a path to the source code. This could be a single python file (e.g. main.py), a repository link (if the path is not specified in the arguments), or an entire directory of source files. 
 In case the source code is not on github, the source files are all copied inside the artifacts directory, and the path logged inside the provenance file will reference whis copy. </p>
-<pre><code class="language-python">log_input(inp, log_copy_in_prov_directory=True)
+<pre><code class="language-python">def log_input(inp : Any, log_copy_in_prov_directory : bool = True): ...
 </code></pre>
 <p>The directive <code>log_input</code> saves with incremental ids a various number of inputs, which are user defined. </p>
-<pre><code class="language-python">log_output(out, log_copy_in_prov_directory=True)
+<pre><code class="language-python">def log_output(out : Any, log_copy_in_prov_directory : bool = True): ...
 </code></pre>
 <p>The directive <code>log_output</code> saves with incremental ids a various number of outputs, which are user defined. </p>
-<div id="admonition-warning" class="admonition admonish-warning" role="note" aria-labelledby="admonition-warning-title">
-<div class="admonition-title">
-<div id="admonition-warning-title">
-<p>Warning</p>
+<div style="display: flex; align-items: center; background-color: #ffcc00; color: #333; border: 5px solid #ffcc00; font-weight: bold; border-radius: 5px; position: relative;">
+    <span style="position: absolute; left: 10px; font-size: 20px;">⚠</span>
+    <span style="margin-left: 55px; padding: 5px; background-color: white; border-radius: 5px; width:100%">
+    Currently, the order of logging of inputs and outputs does matter, which means that concurrent executions will have to log information in order, for a run to be considered reproducible. 
+    </span>
 </div>
-<a class="admonition-anchor-link" href="reproducibility.html#admonition-warning"></a>
+<div style="display: flex; justify-content: center; gap: 10px; margin-top: 20px;">
+    <a href="registering_metrics.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">← Prev</a>
+    <a href="." style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">🏠 Home</a>
+    <a href="prov_viewer.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">Next →</a>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="provenance-viewer"><a class="header" href="#provenance-viewer">Provenance Viewer</a></h1>
+<div style="display: flex; justify-content: center; gap: 10px; margin-top: 20px;">
+    <a href="reproducibility.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">← Prev</a>
+    <a href="." style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">🏠 Home</a>
+    <a href="prov_getters.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">Next →</a>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="get-data-from-provenance-files"><a class="header" href="#get-data-from-provenance-files">Get Data from Provenance Files</a></h1>
+<p>yProv4ml offers a set of directives to easilyy extract the information logged from the provenance.json file. </p>
+<div style="display: flex; align-items: center; background-color: #ffcc00; color: #333; border: 5px solid #ffcc00; font-weight: bold; border-radius: 5px; position: relative;">
+    <span style="position: absolute; left: 10px; font-size: 20px;">⚠</span>
+    <span style="margin-left: 55px; padding: 5px; background-color: white; border-radius: 5px; width:100%">
+    All these functions expect the data to be passed to be a pandas.DataFrame. When using a provenance json file coming from yProv4ML, this can be easily obtained following the example below. 
+    </span>
 </div>
-<div>
-<p>Currently, the order of logging of inputs and outputs does matter, which means that concurrent executions will have to log information in order, for a run to be considered reproducible.</p>
+<div style="display: flex; align-items: center; margin: 20px 0;">
+    <hr style="flex-grow: 0.05; border: 2px solid #009B77; margin: 0;">
+    <span style="background: white; padding: 0 10px; font-weight: bold; color: #009B77;">Example:</span>
+    <hr style="flex-grow: 1; border: 2px solid #009B77; margin: 0;">
 </div>
+<pre><code class="language-python">import json
+data = json.load(open(path_to_prov_json))     
+</code></pre>
+<hr style="border: 2px solid #009B77; margin: 20px 0;">
+<h3 id="utility-functions"><a class="header" href="#utility-functions">Utility Functions</a></h3>
+<pre><code class="language-python">def get_metrics(data : pd.DataFrame, keyword : Optional[str] = None) -&gt; List[str]
+</code></pre>
+<p>The <code>get_metrics</code> function retrieves all available metrics from the provided provjson file. If a keyword is specified, it filters the results to include only metrics that match the keyword.</p>
+<div class="table-wrapper"><table><thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>data</code></td><td><code>pd.DataFrame</code></td><td>Required</td><td>The dataset containing metrics.</td></tr>
+<tr><td><code>keyword</code></td><td><code>Optional[str]</code></td><td><code>None</code></td><td>If provided, filters the metrics to only those containing this keyword.</td></tr>
+</tbody></table>
 </div>
-<p><a href="README.html">Home</a> | <a href="registering_metrics.html">Prev</a> | <a href="usage_pytorch.html">Next</a></p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="example-of-usage-with-pytorch"><a class="header" href="#example-of-usage-with-pytorch">Example of usage with PyTorch</a></h1>
+<pre><code class="language-python">def get_metric(
+    data : pd.DataFrame, 
+    metric : str, 
+    time_in_sec : bool = False, 
+    time_incremental : bool = False, 
+    sort_by : Optional[str] = None, 
+    start_at : Optional[int] = None,
+    end_at : Optional[int] = None
+) -&gt; pd.DataFrame
+</code></pre>
+<p>The <code>get_metric</code> function extracts a specific metric from the dataset, with additional options for formatting and filtering:</p>
+<ul>
+<li>It allows conversion of time-based metrics to seconds.</li>
+<li>It can return time-incremental values instead of absolute values.</li>
+<li>Sorting and range selection (start and end points) can be applied.</li>
+</ul>
+<div class="table-wrapper"><table><thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>data</code></td><td><code>pd.DataFrame</code></td><td>Required</td><td>The dataset containing metrics.</td></tr>
+<tr><td><code>metric</code></td><td><code>str</code></td><td>Required</td><td>The specific metric to retrieve.</td></tr>
+<tr><td><code>time_in_sec</code></td><td><code>bool</code></td><td><code>False</code></td><td>If <code>True</code>, converts time-based metrics to seconds.</td></tr>
+<tr><td><code>time_incremental</code></td><td><code>bool</code></td><td><code>False</code></td><td>If <code>True</code>, returns incremental values instead of absolute values.</td></tr>
+<tr><td><code>sort_by</code></td><td><code>Optional[str]</code></td><td><code>None</code></td><td>Sorts the metric values by the specified column.</td></tr>
+<tr><td><code>start_at</code></td><td><code>Optional[int]</code></td><td><code>None</code></td><td>Filters data to start at this index.</td></tr>
+<tr><td><code>end_at</code></td><td><code>Optional[int]</code></td><td><code>None</code></td><td>Filters data to end at this index.</td></tr>
+</tbody></table>
+</div>
+<p>The return value for this function is a dataframe containing the following columns: </p>
+<ul>
+<li><code>value</code>: contains the metric items </li>
+<li><code>epoch</code>: contains the corresponding epochs</li>
+<li><code>time</code>: contains the corresponding time steps</li>
+</ul>
+<pre><code class="language-python">def get_param(data : pd.DataFrame, param : str) -&gt; Any
+</code></pre>
+<p>Retrieves a single value corresponding to the given param.
+This function is useful when the parameter is expected to have a unique value and the label exactly matches in the prov json file.</p>
+<pre><code class="language-python">def get_params(data : pd.DataFrame, param : str) -&gt; List[Any]
+</code></pre>
+<p>Retrieves a list of values for the given param.
+This is useful when multiple values exist for the parameter (for example when marked with an incremental ID) in the provenance json file, allowing further analysis or aggregation.</p>
+<div class="table-wrapper"><table><thead><tr><th>Parameter</th><th>Type</th><th>Return Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>data</code></td><td><code>pd.DataFrame</code></td><td>-</td><td>The dataset containing parameters.</td></tr>
+<tr><td><code>param</code></td><td><code>str</code></td><td>-</td><td>The specific parameter to retrieve.</td></tr>
+</tbody></table>
+</div>
+<p>Let me know if you need further clarification! 🚀</p>
+<p>More utility functions are also available: </p>
+<pre><code class="language-python">def get_avg_metric(data, metric) -&gt; pd.DataFrame: ...
+def get_sum_metric(data, metric) -&gt; pd.DataFrame: ...
+def get_metric_time(data, metric, time_in_sec=False) -&gt; pd.DataFrame: ...
+</code></pre>
+<div style="display: flex; justify-content: center; gap: 10px; margin-top: 20px;">
+    <a href="prov_viewer.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">← Prev</a>
+    <a href="." style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">🏠 Home</a>
+    <a href="examples.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">Next →</a>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="examples"><a class="header" href="#examples">Examples</a></h1>
+<div style="display: flex; justify-content: center; gap: 10px; margin-top: 20px;">
+    <a href="prov_getters.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">← Prev</a>
+    <a href="." style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">🏠 Home</a>
+    <a href="usage_pytorch.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">Next →</a>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="example-of-usage-with-pytorch"><a class="header" href="#example-of-usage-with-pytorch">Example of usage with PyTorch</a></h1>
 <p>This section provides an example of how to use Prov4ML with PyTorch.</p>
 <p>The following code snippet shows how to log metrics, system metrics, carbon metrics, and model versions in a PyTorch training loop.</p>
-<h4 id="example-1"><a class="header" href="#example-1">Example</a></h4>
+<div style="display: flex; align-items: center; margin: 20px 0;">
+    <hr style="flex-grow: 0.05; border: 2px solid #009B77; margin: 0;">
+    <span style="background: white; padding: 0 10px; font-weight: bold; color: #009B77;">Example:</span>
+    <hr style="flex-grow: 1; border: 2px solid #009B77; margin: 0;">
+</div>
 <pre><code class="language-python">for epoch in tqdm(range(EPOCHS)):
     for i, (x, y) in enumerate(train_loader):
         optim.zero_grad()
@@ -617,10 +759,19 @@ In case the source code is not on github, the source files are all copied inside
     prov4ml.save_model_version(mnist_model, f&quot;mnist_model_version_{epoch}&quot;, prov4ml.Context.TRAINING, epoch)
      
 </code></pre>
-<p><a href="README.html">Home</a> | <a href="registering_metrics.html">Prev</a> | <a href="usage_lightning.html">Next</a></p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="example-of-usage-with-pytorch-lightning"><a class="header" href="#example-of-usage-with-pytorch-lightning">Example of usage with PyTorch Lightning</a></h1>
+<hr style="border: 2px solid #009B77; margin: 20px 0;">
+<div style="display: flex; justify-content: center; gap: 10px; margin-top: 20px;">
+    <a href="examples.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">← Prev</a>
+    <a href="." style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">🏠 Home</a>
+    <a href="usage_lightning.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">Next →</a>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="example-of-usage-with-pytorch-lightning"><a class="header" href="#example-of-usage-with-pytorch-lightning">Example of usage with PyTorch Lightning</a></h1>
 <p>This section provides an example of how to use Prov4ML with PyTorch Lightning.</p>
 <p>In any lightning module the calls to <code>train_step</code>, <code>validation_step</code>, and <code>test_step</code> can be overridden to log the necessary information.</p>
+<div style="display: flex; align-items: center; margin: 20px 0;">
+    <hr style="flex-grow: 0.05; border: 2px solid #009B77; margin: 0;">
+    <span style="background: white; padding: 0 10px; font-weight: bold; color: #009B77;">Example:</span>
+    <hr style="flex-grow: 1; border: 2px solid #009B77; margin: 0;">
+</div>
 <pre><code class="language-python">def training_step(self, batch, batch_idx):
     x, y = batch
     y_hat = self(x)
@@ -629,8 +780,14 @@ In case the source code is not on github, the source files are all copied inside
     prov4ml.log_flops_per_batch(&quot;train_flops&quot;, self, batch, prov4ml.Context.TRAINING,step=self.current_epoch)
     return loss
 </code></pre>
+<hr style="border: 2px solid #009B77; margin: 20px 0;">
 <p>This will log the mean squared error and the number of flops per batch for each the training step.</p>
 <p>Alternatively, the <code>on_train_epoch_end</code> method can be overridden to log information at the end of each epoch.</p>
+<div style="display: flex; align-items: center; margin: 20px 0;">
+    <hr style="flex-grow: 0.05; border: 2px solid #009B77; margin: 0;">
+    <span style="background: white; padding: 0 10px; font-weight: bold; color: #009B77;">Example:</span>
+    <hr style="flex-grow: 1; border: 2px solid #009B77; margin: 0;">
+</div>
 <pre><code class="language-python">def on_train_epoch_end(self) -&gt; None:
     prov4ml.log_metric(&quot;epoch&quot;, self.current_epoch, prov4ml.Context.TRAINING, step=self.current_epoch)
     prov4ml.save_model_version(self, f&quot;model_version_{self.current_epoch}&quot;, prov4ml.Context.TRAINING, step=self.current_epoch)
@@ -638,7 +795,81 @@ In case the source code is not on github, the source files are all copied inside
     prov4ml.log_carbon_metrics(prov4ml.Context.TRAINING,step=self.current_epoch)
     prov4ml.log_current_execution_time(&quot;train_epoch_time&quot;, prov4ml.Context.TRAINING, self.current_epoch)
 </code></pre>
-<div style="break-before: page; page-break-before: always;"></div>
+<hr style="border: 2px solid #009B77; margin: 20px 0;">
+<div style="display: flex; justify-content: center; gap: 10px; margin-top: 20px;">
+    <a href="usage_pytorch.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">← Prev</a>
+    <a href="." style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">🏠 Home</a>
+    <a href="usage_itwinAI_logger.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">Next →</a>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="usage-with-itwinai-logger"><a class="header" href="#usage-with-itwinai-logger">Usage with itwinAI Logger</a></h1>
+<div style="display: flex; justify-content: center; gap: 10px; margin-top: 20px;">
+    <a href="usage_lightning.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">← Prev</a>
+    <a href="." style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">🏠 Home</a>
+    <a href="prov_getters_example.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">Next →</a>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="viewing-data"><a class="header" href="#viewing-data">Viewing Data</a></h1>
+<div style="display: flex; align-items: center; margin: 20px 0;">
+    <hr style="flex-grow: 0.05; border: 2px solid #009B77; margin: 0;">
+    <span style="background: white; padding: 0 10px; font-weight: bold; color: #009B77;">Example:</span>
+    <hr style="flex-grow: 1; border: 2px solid #009B77; margin: 0;">
+</div>
+<pre><code class="language-python">import pandas as pd
+import json
+import matplotlib.pyplot as plt
+
+# Import the directives from prov4ml
+import prov4ml.utils.prov_getters as pg
+
+data = json.load(open(file_path))
+# Get only metrics which have been collected during training phase
+metric_keys = pg.get_metrics(data, keyword=&quot;TRAINING&quot;)
+print(metric_keys)
+
+# Creating mean values dictionary
+metric = pg.get_metric(data, metric_keys[0])
+
+plt.plot(metric[&quot;value&quot;])
+plt.show()
+</code></pre>
+<hr style="border: 2px solid #009B77; margin: 20px 0;">
+<p><img src="./assets/prov_getters_example.png" alt="Prov_Getter_example" /></p>
+<div style="display: flex; justify-content: center; gap: 10px; margin-top: 20px;">
+    <a href="usage_itwinAI_logger.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">← Prev</a>
+    <a href="." style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">🏠 Home</a>
+    <a href="reproducible_example.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">Next →</a>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="reproducible-example"><a class="header" href="#reproducible-example">Reproducible Example</a></h1>
+<div style="display: flex; align-items: center; margin: 20px 0;">
+    <hr style="flex-grow: 0.05; border: 2px solid #009B77; margin: 0;">
+    <span style="background: white; padding: 0 10px; font-weight: bold; color: #009B77;">Example:</span>
+    <hr style="flex-grow: 1; border: 2px solid #009B77; margin: 0;">
+</div>
+<pre><code class="language-python">import prov4ml
+
+prov4ml.start_run(
+    prov_user_namespace=&quot;www.example.org&quot;,
+    experiment_name=&quot;reproducible_example&quot;, 
+    provenance_save_dir=&quot;prov&quot;,
+    save_after_n_logs=100,
+    collect_all_processes=True, 
+)
+
+prov4ml.log_source_code()
+prov4ml.log_execution_command(&quot;python3 examples/reproducibility_example.py&quot;)
+
+def square(x): 
+    return x**2
+
+for i in range(1, 10): 
+    prov4ml.log_input(i)
+    o = square(i)
+    prov4ml.log_output(o)
+
+prov4ml.end_run(True, True)
+</code></pre>
+<hr style="border: 2px solid #009B77; margin: 20px 0;">
+<div style="display: flex; justify-content: center; gap: 10px; margin-top: 20px;">
+    <a href="prov_getters_example.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">← Prev</a>
+    <a href="." style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">🏠 Home</a>
+    <a href="." style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">Next →</a>
+</div>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">

@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="setup.html"><strong aria-hidden="true">3.</strong> Setup</a></li><li class="chapter-item expanded "><a href="prov_graph.html"><strong aria-hidden="true">4.</strong> Provenance Graph</a></li><li class="chapter-item expanded "><a href="logging.html"><strong aria-hidden="true">5.</strong> Logging</a></li><li class="chapter-item expanded "><a href="prov_collection.html"><strong aria-hidden="true">6.</strong> Prov Collection</a></li><li class="chapter-item expanded "><a href="carbon.html"><strong aria-hidden="true">7.</strong> Carbon Metrics</a></li><li class="chapter-item expanded "><a href="system.html"><strong aria-hidden="true">8.</strong> System Metrics</a></li><li class="chapter-item expanded "><a href="time.html"><strong aria-hidden="true">9.</strong> Time Metrics</a></li><li class="chapter-item expanded "><a href="registering_metrics.html"><strong aria-hidden="true">10.</strong> Registering Metrics</a></li><li class="chapter-item expanded "><a href="reproducibility.html" class="active"><strong aria-hidden="true">11.</strong> Reproducibility</a></li><li class="chapter-item expanded "><a href="usage_pytorch.html"><strong aria-hidden="true">12.</strong> Usage with PyTorch</a></li><li class="chapter-item expanded "><a href="usage_lightning.html"><strong aria-hidden="true">13.</strong> Usage with Lightning</a></li><li class="chapter-item expanded "><a href="usage_itwinAI_logger.html"><strong aria-hidden="true">14.</strong> Usage with ItwinAI Logger</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="setup.html"><strong aria-hidden="true">3.</strong> Setup</a></li><li class="chapter-item expanded "><a href="prov_graph.html"><strong aria-hidden="true">4.</strong> Provenance Graph</a></li><li class="chapter-item expanded "><a href="logging.html"><strong aria-hidden="true">5.</strong> Logging</a></li><li class="chapter-item expanded "><a href="prov_collection.html"><strong aria-hidden="true">6.</strong> Prov Collection</a></li><li class="chapter-item expanded "><a href="metrics.html"><strong aria-hidden="true">7.</strong> Metrics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="carbon.html"><strong aria-hidden="true">7.1.</strong> Carbon Metrics</a></li><li class="chapter-item expanded "><a href="system.html"><strong aria-hidden="true">7.2.</strong> System Metrics</a></li><li class="chapter-item expanded "><a href="time.html"><strong aria-hidden="true">7.3.</strong> Time Metrics</a></li><li class="chapter-item expanded "><a href="registering_metrics.html"><strong aria-hidden="true">7.4.</strong> Registering Metrics</a></li></ol></li><li class="chapter-item expanded "><a href="reproducibility.html" class="active"><strong aria-hidden="true">8.</strong> Reproducibility</a></li><li class="chapter-item expanded "><a href="prov_viewer.html"><strong aria-hidden="true">9.</strong> Provenance Viewer</a></li><li class="chapter-item expanded "><a href="prov_getters.html"><strong aria-hidden="true">10.</strong> Get Data from Provenance Files</a></li><li class="chapter-item expanded "><a href="examples.html"><strong aria-hidden="true">11.</strong> Examples</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="usage_pytorch.html"><strong aria-hidden="true">11.1.</strong> Usage with PyTorch</a></li><li class="chapter-item expanded "><a href="usage_lightning.html"><strong aria-hidden="true">11.2.</strong> Usage with Lightning</a></li><li class="chapter-item expanded "><a href="usage_itwinAI_logger.html"><strong aria-hidden="true">11.3.</strong> Usage with ItwinAI Logger</a></li><li class="chapter-item expanded "><a href="prov_getters_example.html"><strong aria-hidden="true">11.4.</strong> Viewing Data</a></li><li class="chapter-item expanded "><a href="reproducible_example.html"><strong aria-hidden="true">11.5.</strong> Reproducible Example</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -148,32 +148,30 @@
                         <h1 id="reproducing-experiments-using-provenance-files"><a class="header" href="#reproducing-experiments-using-provenance-files">Reproducing Experiments using Provenance Files</a></h1>
 <p>With workflow streamlined by yProv4ML, it is trivial to guarantee reproducibility of experiments even just sharing a single provenance file. 
 To guarantee the necessary amount of information are present in the prov.json file however, some calls to the library have to be executed. </p>
-<pre><code class="language-python">log_execution_command(cmd : str)
+<pre><code class="language-python">def log_execution_command(cmd : str): ...
 </code></pre>
 <p>Simply logs the execution command for it to be retrieved by the reproduction script later. This is often a call to python3</p>
-<pre><code class="language-python">log_source_code(path: str = None)
+<pre><code class="language-python">def log_source_code(path: Optional[str] = None): ...
 </code></pre>
 <p>Logs as an artifact a path to the source code. This could be a single python file (e.g. main.py), a repository link (if the path is not specified in the arguments), or an entire directory of source files. 
 In case the source code is not on github, the source files are all copied inside the artifacts directory, and the path logged inside the provenance file will reference whis copy. </p>
-<pre><code class="language-python">log_input(inp, log_copy_in_prov_directory=True)
+<pre><code class="language-python">def log_input(inp : Any, log_copy_in_prov_directory : bool = True): ...
 </code></pre>
 <p>The directive <code>log_input</code> saves with incremental ids a various number of inputs, which are user defined. </p>
-<pre><code class="language-python">log_output(out, log_copy_in_prov_directory=True)
+<pre><code class="language-python">def log_output(out : Any, log_copy_in_prov_directory : bool = True): ...
 </code></pre>
 <p>The directive <code>log_output</code> saves with incremental ids a various number of outputs, which are user defined. </p>
-<div id="admonition-warning" class="admonition admonish-warning" role="note" aria-labelledby="admonition-warning-title">
-<div class="admonition-title">
-<div id="admonition-warning-title">
-<p>Warning</p>
+<div style="display: flex; align-items: center; background-color: #ffcc00; color: #333; border: 5px solid #ffcc00; font-weight: bold; border-radius: 5px; position: relative;">
+    <span style="position: absolute; left: 10px; font-size: 20px;">⚠</span>
+    <span style="margin-left: 55px; padding: 5px; background-color: white; border-radius: 5px; width:100%">
+    Currently, the order of logging of inputs and outputs does matter, which means that concurrent executions will have to log information in order, for a run to be considered reproducible. 
+    </span>
 </div>
-<a class="admonition-anchor-link" href="#admonition-warning"></a>
+<div style="display: flex; justify-content: center; gap: 10px; margin-top: 20px;">
+    <a href="registering_metrics.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">← Prev</a>
+    <a href="." style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">🏠 Home</a>
+    <a href="prov_viewer.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">Next →</a>
 </div>
-<div>
-<p>Currently, the order of logging of inputs and outputs does matter, which means that concurrent executions will have to log information in order, for a run to be considered reproducible.</p>
-</div>
-</div>
-<p><a href="README.html">Home</a> | <a href="registering_metrics.html">Prev</a> | <a href="usage_pytorch.html">Next</a></p>
-
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
@@ -182,7 +180,7 @@ In case the source code is not on github, the source files are all copied inside
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="usage_pytorch.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="prov_viewer.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -196,7 +194,7 @@ In case the source code is not on github, the source files are all copied inside
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="usage_pytorch.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="prov_viewer.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

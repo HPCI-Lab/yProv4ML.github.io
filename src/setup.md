@@ -43,9 +43,14 @@ prov4ml.end_run(
 
 This call allows the library to save the provenance graph in the specified directory. 
 
-<div style="background-color: #ffcc00; color: #333; padding: 15px; border-left: 5px solid #cc3300; font-weight: bold; margin: 20px; border-radius: 5px;">
-    ⚠️ If create_svg is True then create_graph has to be necessairly set to True, as the creation of the former requires the latter. 
+
+<div style="display: flex; align-items: center; background-color: #ffcc00; color: #333; border: 5px solid #ffcc00; font-weight: bold; border-radius: 5px; position: relative;">
+    <span style="position: absolute; left: 10px; font-size: 20px;">⚠</span>
+    <span style="margin-left: 55px; padding: 5px; background-color: white; border-radius: 5px; width:100%">If create_svg is True then create_graph has to be necessairly set to True, as the creation of the former requires the latter. </span>
 </div>
 
-
-[Home](README.md) | [Prev](installation.md) | [Next](prov_graph.md)
+<div style="display: flex; justify-content: center; gap: 10px; margin-top: 20px;">
+    <a href="installation.md" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">← Prev</a>
+    <a href="." style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">🏠 Home</a>
+    <a href="prov_graph.md" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">Next →</a>
+</div>

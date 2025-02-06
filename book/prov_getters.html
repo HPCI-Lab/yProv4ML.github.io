@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Usage with PyTorch - yProv4ML Documentation</title>
+        <title>Get Data from Provenance Files - yProv4ML Documentation</title>
 
 
         <!-- Custom HTML head -->
@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="setup.html"><strong aria-hidden="true">3.</strong> Setup</a></li><li class="chapter-item expanded "><a href="prov_graph.html"><strong aria-hidden="true">4.</strong> Provenance Graph</a></li><li class="chapter-item expanded "><a href="logging.html"><strong aria-hidden="true">5.</strong> Logging</a></li><li class="chapter-item expanded "><a href="prov_collection.html"><strong aria-hidden="true">6.</strong> Prov Collection</a></li><li class="chapter-item expanded "><a href="metrics.html"><strong aria-hidden="true">7.</strong> Metrics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="carbon.html"><strong aria-hidden="true">7.1.</strong> Carbon Metrics</a></li><li class="chapter-item expanded "><a href="system.html"><strong aria-hidden="true">7.2.</strong> System Metrics</a></li><li class="chapter-item expanded "><a href="time.html"><strong aria-hidden="true">7.3.</strong> Time Metrics</a></li><li class="chapter-item expanded "><a href="registering_metrics.html"><strong aria-hidden="true">7.4.</strong> Registering Metrics</a></li></ol></li><li class="chapter-item expanded "><a href="reproducibility.html"><strong aria-hidden="true">8.</strong> Reproducibility</a></li><li class="chapter-item expanded "><a href="prov_viewer.html"><strong aria-hidden="true">9.</strong> Provenance Viewer</a></li><li class="chapter-item expanded "><a href="prov_getters.html"><strong aria-hidden="true">10.</strong> Get Data from Provenance Files</a></li><li class="chapter-item expanded "><a href="examples.html"><strong aria-hidden="true">11.</strong> Examples</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="usage_pytorch.html" class="active"><strong aria-hidden="true">11.1.</strong> Usage with PyTorch</a></li><li class="chapter-item expanded "><a href="usage_lightning.html"><strong aria-hidden="true">11.2.</strong> Usage with Lightning</a></li><li class="chapter-item expanded "><a href="usage_itwinAI_logger.html"><strong aria-hidden="true">11.3.</strong> Usage with ItwinAI Logger</a></li><li class="chapter-item expanded "><a href="prov_getters_example.html"><strong aria-hidden="true">11.4.</strong> Viewing Data</a></li><li class="chapter-item expanded "><a href="reproducible_example.html"><strong aria-hidden="true">11.5.</strong> Reproducible Example</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="setup.html"><strong aria-hidden="true">3.</strong> Setup</a></li><li class="chapter-item expanded "><a href="prov_graph.html"><strong aria-hidden="true">4.</strong> Provenance Graph</a></li><li class="chapter-item expanded "><a href="logging.html"><strong aria-hidden="true">5.</strong> Logging</a></li><li class="chapter-item expanded "><a href="prov_collection.html"><strong aria-hidden="true">6.</strong> Prov Collection</a></li><li class="chapter-item expanded "><a href="metrics.html"><strong aria-hidden="true">7.</strong> Metrics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="carbon.html"><strong aria-hidden="true">7.1.</strong> Carbon Metrics</a></li><li class="chapter-item expanded "><a href="system.html"><strong aria-hidden="true">7.2.</strong> System Metrics</a></li><li class="chapter-item expanded "><a href="time.html"><strong aria-hidden="true">7.3.</strong> Time Metrics</a></li><li class="chapter-item expanded "><a href="registering_metrics.html"><strong aria-hidden="true">7.4.</strong> Registering Metrics</a></li></ol></li><li class="chapter-item expanded "><a href="reproducibility.html"><strong aria-hidden="true">8.</strong> Reproducibility</a></li><li class="chapter-item expanded "><a href="prov_viewer.html"><strong aria-hidden="true">9.</strong> Provenance Viewer</a></li><li class="chapter-item expanded "><a href="prov_getters.html" class="active"><strong aria-hidden="true">10.</strong> Get Data from Provenance Files</a></li><li class="chapter-item expanded "><a href="examples.html"><strong aria-hidden="true">11.</strong> Examples</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="usage_pytorch.html"><strong aria-hidden="true">11.1.</strong> Usage with PyTorch</a></li><li class="chapter-item expanded "><a href="usage_lightning.html"><strong aria-hidden="true">11.2.</strong> Usage with Lightning</a></li><li class="chapter-item expanded "><a href="usage_itwinAI_logger.html"><strong aria-hidden="true">11.3.</strong> Usage with ItwinAI Logger</a></li><li class="chapter-item expanded "><a href="prov_getters_example.html"><strong aria-hidden="true">11.4.</strong> Viewing Data</a></li><li class="chapter-item expanded "><a href="reproducible_example.html"><strong aria-hidden="true">11.5.</strong> Reproducible Example</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -145,45 +145,97 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="example-of-usage-with-pytorch"><a class="header" href="#example-of-usage-with-pytorch">Example of usage with PyTorch</a></h1>
-<p>This section provides an example of how to use Prov4ML with PyTorch.</p>
-<p>The following code snippet shows how to log metrics, system metrics, carbon metrics, and model versions in a PyTorch training loop.</p>
+                        <h1 id="get-data-from-provenance-files"><a class="header" href="#get-data-from-provenance-files">Get Data from Provenance Files</a></h1>
+<p>yProv4ml offers a set of directives to easilyy extract the information logged from the provenance.json file. </p>
+<div style="display: flex; align-items: center; background-color: #ffcc00; color: #333; border: 5px solid #ffcc00; font-weight: bold; border-radius: 5px; position: relative;">
+    <span style="position: absolute; left: 10px; font-size: 20px;">⚠</span>
+    <span style="margin-left: 55px; padding: 5px; background-color: white; border-radius: 5px; width:100%">
+    All these functions expect the data to be passed to be a pandas.DataFrame. When using a provenance json file coming from yProv4ML, this can be easily obtained following the example below. 
+    </span>
+</div>
 <div style="display: flex; align-items: center; margin: 20px 0;">
     <hr style="flex-grow: 0.05; border: 2px solid #009B77; margin: 0;">
     <span style="background: white; padding: 0 10px; font-weight: bold; color: #009B77;">Example:</span>
     <hr style="flex-grow: 1; border: 2px solid #009B77; margin: 0;">
 </div>
-<pre><code class="language-python">for epoch in tqdm(range(EPOCHS)):
-    for i, (x, y) in enumerate(train_loader):
-        optim.zero_grad()
-        y_hat = mnist_model(x)
-        loss = F.cross_entropy(y_hat, y)
-        loss.backward()
-        optim.step()
-        prov4ml.log_metric(&quot;MSE_train&quot;, loss, context=prov4ml.Context.TRAINING, step=epoch)
-    
-    # log system and carbon metrics (once per epoch), as well as the execution time
-    prov4ml.log_carbon_metrics(prov4ml.Context.TRAINING, step=epoch)
-    prov4ml.log_system_metrics(prov4ml.Context.TRAINING, step=epoch)
-    # save incremental model versions
-    prov4ml.save_model_version(mnist_model, f&quot;mnist_model_version_{epoch}&quot;, prov4ml.Context.TRAINING, epoch)
-     
+<pre><code class="language-python">import json
+data = json.load(open(path_to_prov_json))     
 </code></pre>
 <hr style="border: 2px solid #009B77; margin: 20px 0;">
+<h3 id="utility-functions"><a class="header" href="#utility-functions">Utility Functions</a></h3>
+<pre><code class="language-python">def get_metrics(data : pd.DataFrame, keyword : Optional[str] = None) -&gt; List[str]
+</code></pre>
+<p>The <code>get_metrics</code> function retrieves all available metrics from the provided provjson file. If a keyword is specified, it filters the results to include only metrics that match the keyword.</p>
+<div class="table-wrapper"><table><thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>data</code></td><td><code>pd.DataFrame</code></td><td>Required</td><td>The dataset containing metrics.</td></tr>
+<tr><td><code>keyword</code></td><td><code>Optional[str]</code></td><td><code>None</code></td><td>If provided, filters the metrics to only those containing this keyword.</td></tr>
+</tbody></table>
+</div>
+<pre><code class="language-python">def get_metric(
+    data : pd.DataFrame, 
+    metric : str, 
+    time_in_sec : bool = False, 
+    time_incremental : bool = False, 
+    sort_by : Optional[str] = None, 
+    start_at : Optional[int] = None,
+    end_at : Optional[int] = None
+) -&gt; pd.DataFrame
+</code></pre>
+<p>The <code>get_metric</code> function extracts a specific metric from the dataset, with additional options for formatting and filtering:</p>
+<ul>
+<li>It allows conversion of time-based metrics to seconds.</li>
+<li>It can return time-incremental values instead of absolute values.</li>
+<li>Sorting and range selection (start and end points) can be applied.</li>
+</ul>
+<div class="table-wrapper"><table><thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>data</code></td><td><code>pd.DataFrame</code></td><td>Required</td><td>The dataset containing metrics.</td></tr>
+<tr><td><code>metric</code></td><td><code>str</code></td><td>Required</td><td>The specific metric to retrieve.</td></tr>
+<tr><td><code>time_in_sec</code></td><td><code>bool</code></td><td><code>False</code></td><td>If <code>True</code>, converts time-based metrics to seconds.</td></tr>
+<tr><td><code>time_incremental</code></td><td><code>bool</code></td><td><code>False</code></td><td>If <code>True</code>, returns incremental values instead of absolute values.</td></tr>
+<tr><td><code>sort_by</code></td><td><code>Optional[str]</code></td><td><code>None</code></td><td>Sorts the metric values by the specified column.</td></tr>
+<tr><td><code>start_at</code></td><td><code>Optional[int]</code></td><td><code>None</code></td><td>Filters data to start at this index.</td></tr>
+<tr><td><code>end_at</code></td><td><code>Optional[int]</code></td><td><code>None</code></td><td>Filters data to end at this index.</td></tr>
+</tbody></table>
+</div>
+<p>The return value for this function is a dataframe containing the following columns: </p>
+<ul>
+<li><code>value</code>: contains the metric items </li>
+<li><code>epoch</code>: contains the corresponding epochs</li>
+<li><code>time</code>: contains the corresponding time steps</li>
+</ul>
+<pre><code class="language-python">def get_param(data : pd.DataFrame, param : str) -&gt; Any
+</code></pre>
+<p>Retrieves a single value corresponding to the given param.
+This function is useful when the parameter is expected to have a unique value and the label exactly matches in the prov json file.</p>
+<pre><code class="language-python">def get_params(data : pd.DataFrame, param : str) -&gt; List[Any]
+</code></pre>
+<p>Retrieves a list of values for the given param.
+This is useful when multiple values exist for the parameter (for example when marked with an incremental ID) in the provenance json file, allowing further analysis or aggregation.</p>
+<div class="table-wrapper"><table><thead><tr><th>Parameter</th><th>Type</th><th>Return Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>data</code></td><td><code>pd.DataFrame</code></td><td>-</td><td>The dataset containing parameters.</td></tr>
+<tr><td><code>param</code></td><td><code>str</code></td><td>-</td><td>The specific parameter to retrieve.</td></tr>
+</tbody></table>
+</div>
+<p>Let me know if you need further clarification! 🚀</p>
+<p>More utility functions are also available: </p>
+<pre><code class="language-python">def get_avg_metric(data, metric) -&gt; pd.DataFrame: ...
+def get_sum_metric(data, metric) -&gt; pd.DataFrame: ...
+def get_metric_time(data, metric, time_in_sec=False) -&gt; pd.DataFrame: ...
+</code></pre>
 <div style="display: flex; justify-content: center; gap: 10px; margin-top: 20px;">
-    <a href="examples.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">← Prev</a>
+    <a href="prov_viewer.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">← Prev</a>
     <a href="." style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">🏠 Home</a>
-    <a href="usage_lightning.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">Next →</a>
+    <a href="examples.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">Next →</a>
 </div>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="examples.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="prov_viewer.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="usage_lightning.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="examples.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -193,11 +245,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="examples.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="prov_viewer.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="usage_lightning.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="examples.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="setup.html"><strong aria-hidden="true">3.</strong> Setup</a></li><li class="chapter-item expanded "><a href="prov_graph.html"><strong aria-hidden="true">4.</strong> Provenance Graph</a></li><li class="chapter-item expanded "><a href="logging.html"><strong aria-hidden="true">5.</strong> Logging</a></li><li class="chapter-item expanded "><a href="prov_collection.html"><strong aria-hidden="true">6.</strong> Prov Collection</a></li><li class="chapter-item expanded "><a href="carbon.html"><strong aria-hidden="true">7.</strong> Carbon Metrics</a></li><li class="chapter-item expanded "><a href="system.html"><strong aria-hidden="true">8.</strong> System Metrics</a></li><li class="chapter-item expanded "><a href="time.html"><strong aria-hidden="true">9.</strong> Time Metrics</a></li><li class="chapter-item expanded "><a href="registering_metrics.html"><strong aria-hidden="true">10.</strong> Registering Metrics</a></li><li class="chapter-item expanded "><a href="reproducibility.html"><strong aria-hidden="true">11.</strong> Reproducibility</a></li><li class="chapter-item expanded "><a href="usage_pytorch.html"><strong aria-hidden="true">12.</strong> Usage with PyTorch</a></li><li class="chapter-item expanded "><a href="usage_lightning.html" class="active"><strong aria-hidden="true">13.</strong> Usage with Lightning</a></li><li class="chapter-item expanded "><a href="usage_itwinAI_logger.html"><strong aria-hidden="true">14.</strong> Usage with ItwinAI Logger</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="setup.html"><strong aria-hidden="true">3.</strong> Setup</a></li><li class="chapter-item expanded "><a href="prov_graph.html"><strong aria-hidden="true">4.</strong> Provenance Graph</a></li><li class="chapter-item expanded "><a href="logging.html"><strong aria-hidden="true">5.</strong> Logging</a></li><li class="chapter-item expanded "><a href="prov_collection.html"><strong aria-hidden="true">6.</strong> Prov Collection</a></li><li class="chapter-item expanded "><a href="metrics.html"><strong aria-hidden="true">7.</strong> Metrics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="carbon.html"><strong aria-hidden="true">7.1.</strong> Carbon Metrics</a></li><li class="chapter-item expanded "><a href="system.html"><strong aria-hidden="true">7.2.</strong> System Metrics</a></li><li class="chapter-item expanded "><a href="time.html"><strong aria-hidden="true">7.3.</strong> Time Metrics</a></li><li class="chapter-item expanded "><a href="registering_metrics.html"><strong aria-hidden="true">7.4.</strong> Registering Metrics</a></li></ol></li><li class="chapter-item expanded "><a href="reproducibility.html"><strong aria-hidden="true">8.</strong> Reproducibility</a></li><li class="chapter-item expanded "><a href="prov_viewer.html"><strong aria-hidden="true">9.</strong> Provenance Viewer</a></li><li class="chapter-item expanded "><a href="prov_getters.html"><strong aria-hidden="true">10.</strong> Get Data from Provenance Files</a></li><li class="chapter-item expanded "><a href="examples.html"><strong aria-hidden="true">11.</strong> Examples</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="usage_pytorch.html"><strong aria-hidden="true">11.1.</strong> Usage with PyTorch</a></li><li class="chapter-item expanded "><a href="usage_lightning.html" class="active"><strong aria-hidden="true">11.2.</strong> Usage with Lightning</a></li><li class="chapter-item expanded "><a href="usage_itwinAI_logger.html"><strong aria-hidden="true">11.3.</strong> Usage with ItwinAI Logger</a></li><li class="chapter-item expanded "><a href="prov_getters_example.html"><strong aria-hidden="true">11.4.</strong> Viewing Data</a></li><li class="chapter-item expanded "><a href="reproducible_example.html"><strong aria-hidden="true">11.5.</strong> Reproducible Example</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -148,6 +148,11 @@
                         <h1 id="example-of-usage-with-pytorch-lightning"><a class="header" href="#example-of-usage-with-pytorch-lightning">Example of usage with PyTorch Lightning</a></h1>
 <p>This section provides an example of how to use Prov4ML with PyTorch Lightning.</p>
 <p>In any lightning module the calls to <code>train_step</code>, <code>validation_step</code>, and <code>test_step</code> can be overridden to log the necessary information.</p>
+<div style="display: flex; align-items: center; margin: 20px 0;">
+    <hr style="flex-grow: 0.05; border: 2px solid #009B77; margin: 0;">
+    <span style="background: white; padding: 0 10px; font-weight: bold; color: #009B77;">Example:</span>
+    <hr style="flex-grow: 1; border: 2px solid #009B77; margin: 0;">
+</div>
 <pre><code class="language-python">def training_step(self, batch, batch_idx):
     x, y = batch
     y_hat = self(x)
@@ -156,8 +161,14 @@
     prov4ml.log_flops_per_batch(&quot;train_flops&quot;, self, batch, prov4ml.Context.TRAINING,step=self.current_epoch)
     return loss
 </code></pre>
+<hr style="border: 2px solid #009B77; margin: 20px 0;">
 <p>This will log the mean squared error and the number of flops per batch for each the training step.</p>
 <p>Alternatively, the <code>on_train_epoch_end</code> method can be overridden to log information at the end of each epoch.</p>
+<div style="display: flex; align-items: center; margin: 20px 0;">
+    <hr style="flex-grow: 0.05; border: 2px solid #009B77; margin: 0;">
+    <span style="background: white; padding: 0 10px; font-weight: bold; color: #009B77;">Example:</span>
+    <hr style="flex-grow: 1; border: 2px solid #009B77; margin: 0;">
+</div>
 <pre><code class="language-python">def on_train_epoch_end(self) -&gt; None:
     prov4ml.log_metric(&quot;epoch&quot;, self.current_epoch, prov4ml.Context.TRAINING, step=self.current_epoch)
     prov4ml.save_model_version(self, f&quot;model_version_{self.current_epoch}&quot;, prov4ml.Context.TRAINING, step=self.current_epoch)
@@ -165,7 +176,12 @@
     prov4ml.log_carbon_metrics(prov4ml.Context.TRAINING,step=self.current_epoch)
     prov4ml.log_current_execution_time(&quot;train_epoch_time&quot;, prov4ml.Context.TRAINING, self.current_epoch)
 </code></pre>
-
+<hr style="border: 2px solid #009B77; margin: 20px 0;">
+<div style="display: flex; justify-content: center; gap: 10px; margin-top: 20px;">
+    <a href="usage_pytorch.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">← Prev</a>
+    <a href="." style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">🏠 Home</a>
+    <a href="usage_itwinAI_logger.html" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">Next →</a>
+</div>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">

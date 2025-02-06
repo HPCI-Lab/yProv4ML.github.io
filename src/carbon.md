@@ -1,10 +1,13 @@
 
 # Carbon Metrics
 
-```admonish warning
-On some architectures, for example MacOS, the use of codecarbon will require sudo permissions. 
-If this feature is not necessary, it can be disabled when starting the new run. 
-```
+<div style="display: flex; align-items: center; background-color: #ffcc00; color: #333; border: 5px solid #ffcc00; font-weight: bold; border-radius: 5px; position: relative;">
+    <span style="position: absolute; left: 10px; font-size: 20px;">⚠</span>
+    <span style="margin-left: 55px; padding: 5px; background-color: white; border-radius: 5px; width:100%">
+    On some architectures, for example MacOS, the use of codecarbon will require sudo permissions. 
+    If this feature is not necessary, it can be disabled when starting the new run. 
+    </span>
+</div>
 
 The prov4ml.log_carbon_metrics function logs carbon-related system metrics during machine learning experiments. 
 The information logged is related to the time between the last call to the function and the current call.
@@ -56,8 +59,12 @@ The emissions rate can decrease due to the following reasons:
 
 After plotting the metrics saved with codecarbon, we can see that the emissions rate decreases over time. 
 
-![Emissions Rate](../assets/codecarbon_metrics.png)
+![Emissions Rate](./assets/codecarbon_metrics.png)
 
 This shows that energy is mostly constant over time, while the emissions rate decreases. This is due to the ratio between energy and time, which is decreasing over time.
 
-[Home](README.md) | [Prev](carbon.md) | [Next](system.md)
+<div style="display: flex; justify-content: center; gap: 10px; margin-top: 20px;">
+    <a href="metrics.md" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">← Prev</a>
+    <a href="." style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">🏠 Home</a>
+    <a href="system.md" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">Next →</a>
+</div>

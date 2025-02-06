@@ -5,7 +5,13 @@ This section provides an example of how to use Prov4ML with PyTorch.
 
 The following code snippet shows how to log metrics, system metrics, carbon metrics, and model versions in a PyTorch training loop.
 
-#### Example
+
+<div style="display: flex; align-items: center; margin: 20px 0;">
+    <hr style="flex-grow: 0.05; border: 2px solid #009B77; margin: 0;">
+    <span style="background: white; padding: 0 10px; font-weight: bold; color: #009B77;">Example:</span>
+    <hr style="flex-grow: 1; border: 2px solid #009B77; margin: 0;">
+</div>
+
 
 ```python
 for epoch in tqdm(range(EPOCHS)):
@@ -25,5 +31,11 @@ for epoch in tqdm(range(EPOCHS)):
      
 ```
 
+<hr style="border: 2px solid #009B77; margin: 20px 0;">
 
-[Home](README.md) | [Prev](registering_metrics.md) | [Next](usage_lightning.md)
+
+<div style="display: flex; justify-content: center; gap: 10px; margin-top: 20px;">
+    <a href="examples.md" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">← Prev</a>
+    <a href="." style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">🏠 Home</a>
+    <a href="usage_lightning.md" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">Next →</a>
+</div>

@@ -35,3 +35,10 @@ Several runs can be executed in the same experiment. All runs will be saved in t
 - [Gabriele Padovani](https://github.com/lelepado01)
 - [Luca Davi](https://github.com/lucadavii)
 - [Sandro Luigi Fiore](https://github.com/sandrofioretn)
+
+
+<div style="display: flex; justify-content: center; gap: 10px; margin-top: 20px;">
+    <a href="." style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">← Prev</a>
+    <a href="." style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">🏠 Home</a>
+    <a href="installation.md" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">Next →</a>
+</div>
