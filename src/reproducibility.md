@@ -22,6 +22,7 @@ def log_input(inp : Any, log_copy_in_prov_directory : bool = True): ...
 ```
 
 The directive `log_input` saves with incremental ids a various number of inputs, which are user defined. 
+The `log_copy_in_prov_directory` parameter indicates whether the input (if a file) is copied as artifact into the artifact directory. This is necessary for reproducibility of the experiment if the input is not retrievable in any other way. 
 
 ```python
 def log_output(out : Any, log_copy_in_prov_directory : bool = True): ...
