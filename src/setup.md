@@ -6,7 +6,7 @@ Before using the library, the user must set up the MLFlow execution, as well as 
 ```python
 prov4ml.start_run(
     prov_user_namespace: str,
-    experiment_name: Optional[str] = None,
+    experiment_name: str,
     provenance_save_dir: Optional[str] = None,
     collect_all_processes: Optional[bool] = False,
     save_after_n_logs: int = 100,
@@ -21,7 +21,7 @@ The parameters are as follows:
 | :-------- | :------- | :------------------------- |
 | `prov_user_namespace` | `string` | **Required**. User namespace for the provenance graph |
 | `experiment_name` | `string` | **Required**. Name of the experiment |
-| `provenance_save_dir` | `string` | **Required**. Directory to save the provenance graph |
+| `provenance_save_dir` | `string` | **Optional**. Directory to save the provenance graph |
 | `collect_all_processes` | `bool` | **Optional**. Whether to collect all processes |
 | `save_after_n_logs` | `int` | **Optional**. Save the graph after n logs |
 | `rank` | `int` | **Optional**. Rank of the process |
