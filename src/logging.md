@@ -71,8 +71,8 @@ To log artifacts, the user can call the following function.
 
 ```python
 prov4ml.log_artifact(
+    artifact_name : str, 
     artifact_path : str, 
-    value : Any, 
     context: Context,
     step: Optional[int] = None, 
     timestamp: Optional[int] = None,
