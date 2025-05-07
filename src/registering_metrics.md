@@ -1,6 +1,11 @@
 
 # Register Metrics for custom Operations
 
+<div style="display: flex; align-items: center; background-color: #cc3300; color: #333; border: 5px solid #cc3300; font-weight: bold; border-radius: 5px; position: relative;">
+    <span style="position: absolute; left: 10px; font-size: 20px;">‼</span>
+    <span style="margin-left: 35px; padding: 5px; background-color: white; border-radius: 5px; width: 100%">This feature is temporarily removed</span>
+</div>
+
 After collection of a specific metric, it's very often the case that a user may want to aggregate that information by applying functions such as mean, standard deviation, or min/max. 
 
 yProv4ML allows to register a specific metric to be aggregated, using the function: 

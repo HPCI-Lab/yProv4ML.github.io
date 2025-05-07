@@ -52,3 +52,30 @@ def on_train_epoch_end(self) -> None:
     <a href="." style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">🏠 Home</a>
     <a href="usage_itwinAI_logger.md" style="text-decoration: none; background-color: #006269; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s;">Next →</a>
 </div>
+
+# Example of usage with PyTorch Lightning Logger
+
+When integrating with lightning, a much easier way to produce the provenance graph is through the ProvMLLogger. 
+
+<div style="display: flex; align-items: center; margin: 20px 0;">
+    <hr style="flex-grow: 0.05; border: 2px solid #009B77; margin: 0;">
+    <span style="background: white; padding: 0 10px; font-weight: bold; color: #009B77;">Example:</span>
+    <hr style="flex-grow: 1; border: 2px solid #009B77; margin: 0;">
+</div>
+
+
+```python
+trainer = L.Trainer(
+    accelerator="cuda",
+    devices=1,
+    max_epochs=EPOCHS,
+    enable_checkpointing=False, 
+    log_every_n_steps=1, 
+    logger=[prov4ml.ProvMLLogger()],
+)
+```
+
+<hr style="border: 2px solid #009B77; margin: 20px 0;">
+
+When logging in such a way, there is no need to call the start_run and end_run directives, and everything will be logged automatically. 
+If necessary, it's still possible to call all yprov4ml directives, such as log_param and log_metrics, and the data will be saved in the current execution directory. 
