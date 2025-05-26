@@ -1,4 +1,29 @@
 
+
+# Pre-Requisites 🔧
+
+The creation of dot files and svg images for the library is handled through the [GraphViz](https://graphviz.org/) suite. For everything to correctly work, this module has to be installed correctly. 
+We reference both the [installation section on their docs](https://graphviz.org/download/), as well as the main ways to install it. 
+
+### Linux
+
+```bash
+sudo apt install graphviz
+```
+
+### MacOS
+
+```bash
+# Installing Homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+brew install graphviz
+```
+
+### Windows
+
+Installers are at the [Download page of GraphViz](https://graphviz.org/download/). 
+
 # Installation 👷‍♂️
 
 Install from the repository:

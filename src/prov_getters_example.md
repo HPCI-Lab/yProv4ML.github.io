@@ -17,9 +17,8 @@ import prov4ml.utils.prov_getters as pg
 data = json.load(open(file_path))
 # Get only metrics which have been collected during training phase
 metric_keys = pg.get_metrics(data, keyword="TRAINING")
-print(metric_keys)
 
-# Creating mean values dictionary
+# Creating values dictionary
 metric = pg.get_metric(data, metric_keys[0])
 
 plt.plot(metric["value"])

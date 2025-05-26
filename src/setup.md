@@ -27,6 +27,18 @@ The parameters are as follows:
 | `rank` | `int` | **Optional**. Rank of the process |
 | `disable_codecarbon` | `Optional[bool]` | **Optional**. Whether to use codecarbon to calculate stats. |
 
+`prov_user_namespace` is a required string that defines the namespace under which all provenance data will be grouped. It helps in logically separating and organizing data across different users or projects, ensuring that the provenance graph remains structured and easily navigable. 
+
+`collect_all_processes`: A boolean flag that, when set to True, enables the collection of provenance data from all processes, which is particularly useful in multi-processing or distributed computing environments. By default, this is False, meaning only the main process (at `rank` 0) will be monitored unless otherwise specified.
+
+`save_after_n_logs`: An optional integer that determines how frequently the provenance graph should be saved based on the number of logs collected. For example, if set to 100, the graph will be saved every 100 logs. This is essentially a caching system, which balances between execution time and RAM usage.
+
+`rank`: This optional integer is used in distributed settings to specify the rank or ID of the currently collecting process. Leaving this parameter empty and `collect_all_processes` to `False` implies that only the process at `rank` 0 will collect data. 
+
+`disable_codecarbon`: An optional boolean that controls whether the CodeCarbon tool is used for tracking the environmental impact of the experiment (e.g., carbon emissions). Setting this to True disables CodeCarbon integration, which can be useful in environments where this measurement is not needed or supported.
+
+---
+
 At the end of the experiment, the user must end the run:
 
 ```python
